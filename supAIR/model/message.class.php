@@ -14,7 +14,7 @@ class message extends Doctrine_Record{
         	$this->hasColumn('destinataire', 'integer');
     		$this->hasColumn('parent', 'integer');
     		$this->hasColumn('post', 'integer');
-    		$this->hasColumn('aimer', 'integer');
+    		$this->hasColumn('aime', 'integer');
     	}
 
 	public function setUp()

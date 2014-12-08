@@ -12,6 +12,6 @@ echo $context->viewProfileUser->nom.' '.$context->viewProfileUser->prenom.'<br/>
 echo $context->viewProfileUser->date_de_naissance.'<br/>';
 echo $context->viewProfileUser->statut.'<br/>';
 
-/*foreach(messageTable::getMessagesByDestinataire($context->viewProfileUser->id) as $message)
-	include($nameApp."/view/"."message.php?id=".$message->id);*/
+foreach(messageTable::getMessagesByDestinataire($context->viewProfileUser->id) as $message)
+	include($nameApp."/view/"."message.php?id=".$message->id);
 ?>
