@@ -16,7 +16,12 @@ echo '<form>
 		<input type="text" name="statut" placeholder="Changez votre statut si vous voulez">
 		<input type="submit" value="Valider">
 	 </form>';
+echo '<br/><br/><form>
+		<input type="text" name="messageto" placeholder="Envoyez un message à '.$context->viewProfileUser->identifiant.'si vous voulez">
+		<input type="submit" value="Envoyer">
+	 </form>';
 
 foreach(messageTable::getMessagesByDestinataire($context->viewProfileUser->id) as $message)
 	include($nameApp."/view/message.php");
+//Derniers ajouts: les messages de l'utilisateur affiché ainsi que le formulaire pour changer le statut
 ?>
