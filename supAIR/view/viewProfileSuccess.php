@@ -6,8 +6,13 @@ if($context->viewProfileUser->id == $context->getSessionAttribute("id"))
 	echo "Votre profil";
 else
 	echo "Profil de ".$context->viewProfileUser->identifiant;
+echo "<br/>";
 
-echo '<img src="'.$context->viewProfileUser->avatar.'" alt="photo de profil de '.$context->viewProfileUser->identifiant.'"/><br/>';
+if($context->viewProfileUser->avatar == "")
+	$srcImage = "images/dummy.jpg";
+else
+	$srcImage = $context->viewProfileUser->avatar;
+echo '<img height="140px" src="'.$srcImage.'" alt="photo de profil de '.$context->viewProfileUser->identifiant.'"/><br/>';
 echo $context->viewProfileUser->nom.' '.$context->viewProfileUser->prenom.'<br/>';
 echo $context->viewProfileUser->date_de_naissance.'<br/>';
 echo $context->viewProfileUser->statut.'<br/>';
@@ -17,7 +22,7 @@ echo '<form>
 		<input type="submit" value="Valider">
 	 </form>';
 echo '<br/><br/><form>
-		<input type="text" name="messageto" placeholder="Envoyez un message à '.$context->viewProfileUser->identifiant.'si vous voulez">
+		<input type="text" name="messageto" placeholder="Envoyez un message &agrave; '.$context->viewProfileUser->identifiant.' si vous voulez">
 		<input type="submit" value="Envoyer">
 	 </form>';
 
