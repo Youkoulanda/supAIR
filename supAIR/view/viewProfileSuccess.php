@@ -13,5 +13,5 @@ echo $context->viewProfileUser->date_de_naissance.'<br/>';
 echo $context->viewProfileUser->statut.'<br/>';
 
 foreach(messageTable::getMessagesByDestinataire($context->viewProfileUser->id) as $message)
-	include($nameApp."/view/"."message.php");
+	include($nameApp."/view/message.php");
 ?>
