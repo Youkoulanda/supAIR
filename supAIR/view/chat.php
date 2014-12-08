@@ -1,3 +1,4 @@
+<aside>
 <?php
 //Auteur: Daniel Salas
 //Objectif: Créer la vue contenant les 10 derniers chats et le champ pour envoyer un chat
@@ -11,3 +12,4 @@
 <form>
 		<input type="text" name="message" placeholder="Envoyer un chat">
 </form>
+</aside>
