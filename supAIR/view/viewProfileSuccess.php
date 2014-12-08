@@ -11,6 +11,7 @@ echo '<img src="'.$context->viewProfileUser->avatar.'" alt="photo de profil de '
 echo $context->viewProfileUser->nom.' '.$context->viewProfileUser->prenom.'<br/>';
 echo $context->viewProfileUser->date_de_naissance.'<br/>';
 echo $context->viewProfileUser->statut.'<br/>';
+if($context->viewProfileUser->id == $context->getSessionAttribute("id"))
 echo '<form>
 		<input type="text" name="statut" placeholder="Changez votre statut si vous voulez">
 		<input type="submit" value="Valider">
