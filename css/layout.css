@@ -1,0 +1,36 @@
+body
+{
+	width:1024px;
+	margin:auto;
+	padding:10px;
+	font-family:helvetica;
+}
+
+header
+{
+	border:solid 1px blue;
+	text-align:center;
+}
+
+article
+{
+	margin-top:10px;
+	border:solid 1px blue;
+	text-align:center;
+	float:right;
+	width:900px;
+}
+
+nav
+{
+	border: solid 1px blue;
+	margin-top:10px;
+	float:left;
+}
+
+ul
+{
+	padding-left:10px;
+	padding-right:10px;
+	list-style-type:none;
+}
