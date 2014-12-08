@@ -27,9 +27,11 @@ class mainController
 			return context::SUCCESS;
 		if(isset($_REQUEST['log']) && isset($_REQUEST['psw']))
 		{
-			if(utilisateurTable::getUserByLoginAndPass($_REQUEST['log'],$_REQUEST['psw'])!=false)
+			$temp=utilisateurTable::getUserByLoginAndPass($_REQUEST['log'],$_REQUEST['psw']);
+			if($temp!=false)
 			{
 				$context->setSessionAttribute("login",$_REQUEST['log']);
+				$context->setSessionAttribute("id",$temp->id);
 				return context::SUCCESS;
 			}
 			else
