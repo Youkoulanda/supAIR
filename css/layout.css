@@ -1,36 +1,44 @@
 body
 {
-	width:1024px;
-	margin:auto;
-	padding:10px;
 	font-family:helvetica;
+	display:flex;
+	flex-direction: column;
 }
 
-header
+#main_wrapper
 {
-	border:solid 1px blue;
-	text-align:center;
+	display:flex;
+	flex-direction: row;
 }
 
-article
-{
-	margin-top:10px;
-	border:solid 1px blue;
-	text-align:center;
-	float:right;
-	width:900px;
-}
-
-nav
-{
-	border: solid 1px blue;
-	margin-top:10px;
-	float:left;
-}
-
-ul
+#main_wrapper aside nav ul
 {
 	padding-left:10px;
 	padding-right:10px;
 	list-style-type:none;
+}
+
+#central_wrapper
+{
+	display:flex;
+	flex-direction:column;
+	flex:1;
+}
+
+#central_wrapper header
+{
+	border:solid 1px blue;
+	text-align:center;
+}
+
+#central_wrapper section
+{
+	border:solid 1px blue;
+	text-align:center;
+	flex:1;
+}
+
+footer
+{
+	text-align:center;
 }
