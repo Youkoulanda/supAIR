@@ -1,4 +1,6 @@
 <?php
-	echo $post->texte."<br>";
-	echo "<img src=\"".$post->image."\"><br>";
+	echo $post->texte."<br/>";
+	
+	if($post->image != "")
+		echo "<img src=\"".$post->image."\"/><br/>";
 ?>

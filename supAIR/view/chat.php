@@ -9,5 +9,5 @@
 	}
 ?>
 <form>
-		<input type="text" name="message" placeholder="Envoyer un chat">
+		<input type="text" name="message" placeholder="Envoyer un chat"/> <input type="submit" value="Envoyer"/>
 </form>
