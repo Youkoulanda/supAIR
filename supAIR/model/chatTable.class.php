@@ -37,9 +37,27 @@ class chatTable extends Doctrine_Table{
 
 		$req = Doctrine_Query::create()
 			->from('chat c')
-			->orderBy('c.id', 'DESC')
+			->orderBy('c.id DESC')
 			->limit(10);
+
+		$collection=$req->execute();
+		$orderedCollection = new Doctrine_Collection('chat');
+		for($i=$collection->count()-1; $i>=0; $i--)
+			 $orderedCollection->add($collection->get($i));
+
+		return $orderedCollection;
+	}
+
+	public static function getNewerThan($lastID)
+	{
+		$connection = dbconnection::getInstance();
+
+		$req = Doctrine_Query::create()
+			->from('chat c')
+			->where('c.id > ?', $lastID)
+			->orderBy('c.id', 'DESC');
 
 		return $req->execute();
 	}
+
 }

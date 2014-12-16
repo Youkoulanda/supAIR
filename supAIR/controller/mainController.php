@@ -10,7 +10,7 @@ class mainController
 	public static function updateChat($request,$context)
 	{
 		$context->lastID=$_REQUEST['id'];	
-		return context::SUCCES;
+		return context::SUCCESS;
 	}
 
 	public static function index($request,$context)
