@@ -51,3 +51,4 @@ class mainController
 		return context::ERROR;
 	}
 }
+?>
