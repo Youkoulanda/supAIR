@@ -7,11 +7,10 @@
 
 class mainController
 {
-
-	public static function helloWord($request,$context)
+	public static function updateChat($request,$context)
 	{
-		$context->mavariable="hello word";
-		return context::SUCCESS;
+		$context->lastID=$_REQUEST['id'];	
+		return context::SUCCES;
 	}
 
 	public static function index($request,$context)
