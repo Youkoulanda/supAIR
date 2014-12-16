@@ -1,2 +1,1 @@
-C'est l'action par défaut !
-<a href=supAIR.php?action=logout>Deconnectez vous !</a>
+Coucou vous êtes connecté, vous avez retrouvé vos identifiants donc vous êtes un boss.
