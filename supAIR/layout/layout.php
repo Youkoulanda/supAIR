@@ -39,5 +39,6 @@
 				<?php include($nameApp."/view/chat.php"); ?>
 			</footer>
 		</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 </body>
 </html>
