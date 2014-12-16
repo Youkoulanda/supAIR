@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
 	<meta charset="utf-8"/>
@@ -11,16 +11,6 @@
 <!-- Encore heureux qu'on a le droit ! C'est le nôtre ou non ?! -->
 
 		<aside id="verticalBanner">
-			<nav>
-				<ul>
-					<li><a href="supAIR.php?action=helloWord">Hello Word</a></li>
-					<li><a href="supAIR.php?action=index">Index</a></li>
-					<?php
-						if($context->getSessionAttribute("login")==null)
-							echo "<li><a href=\"supAIR.php?action=login\">Login</a></li>";
-					?>
-				</ul>
-			</nav>
 			<ul id="friendsList">
 			<?php
 				if($context->getSessionAttribute("login")!=null)

@@ -1,5 +1,4 @@
 <form action="supAIR.php?action=login" method="POST">
-
 	<?php
 		if($context->getSessionAttribute("login")==null)
 		{
