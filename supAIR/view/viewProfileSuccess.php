@@ -24,7 +24,7 @@ if($context->viewProfileUser->id == $context->getSessionAttribute("id"))
 	</form>';
 echo '<br/><br/>
 	<form>
-		<input type="text" name="messageto" placeholder="Envoyez un message &agrave; '.$context->viewProfileUser->identifiant.' si vous voulez">
+		<input type="text" name="messageto" placeholder="Envoyez un message &agrave; '.$context->viewProfileUser->identifiant.'">
 		<input type="submit" value="Envoyer">
 	</form>';
 
