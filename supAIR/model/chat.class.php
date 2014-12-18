@@ -1,10 +1,10 @@
 <?php
-// Classe definissant la table utilisateur dans le SGBDR
+// Classe definissant la table chat dans le SGBDR
 
 class chat extends Doctrine_Record{
 
 	public function setTableDefinition(){
-        	// On définit le nom de notre table  :utilisateur.
+        	// On définit le nom de notre table  :chat.
         	$this->setTableName('chat');
         
     		//Puis, tous les champs
