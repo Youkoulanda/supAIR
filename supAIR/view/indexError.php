@@ -1,5 +1,5 @@
 <p>
-	Vous devez être connecté pour accéder à cette page. Du coup connectez-vous en utilisant le formulaire suivant:
+	Connectez-vous pour avoir accès au contenu du site:
 </p>
 
 <form action="supAIR.php?action=login" method="post">
