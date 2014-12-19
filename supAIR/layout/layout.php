@@ -18,7 +18,6 @@
 									include($nameApp."/view/menu.php");
 						echo'	</ul>
 							</aside>';
-						
 					}
 				?>
 		<div id="centralWrapper">
@@ -30,10 +29,12 @@
 					<?php include($template_view); ?>
 				</article>
 			</section>
-			<footer>
-				<?php include($nameApp."/view/chat.php"); ?>
-			</footer>
 		</div>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-</body>
+		<footer id="chatbox" title="Chatdesboss">
+			<?php include($nameApp."/view/chat.php"); ?>
+		</footer>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+			<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+			<script src="js/chatPosting.js"></script>
+	</body>
 </html>
