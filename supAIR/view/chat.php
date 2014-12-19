@@ -9,5 +9,6 @@
 	}
 ?>
 <form>
-		<input type="text" name="message" placeholder="Envoyer un chat"/> <input type="submit" value="Envoyer"/>
+		<input type="text" name="message" placeholder="Envoyer un chat"/> <input id="chatSubmit" type="button" value="Envoyer"/>
 </form>
+<script src="js/chatPosting.js" type="text/javascript"></script>

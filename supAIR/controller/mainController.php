@@ -13,6 +13,11 @@ class mainController
 		return context::SUCCESS;
 	}
 
+	public static function addChat($request,$context)
+	{
+		chatTable::addChat($_REQUEST['text'],$_REQUEST['id']);	
+	}
+
 	public static function index($request,$context)
 	{
 		if($context->getSessionAttribute("login")!=null)
