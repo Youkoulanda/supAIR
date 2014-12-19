@@ -67,9 +67,21 @@ body
 
 #centralWrapper section
 {
-	border:solid 1px #4529FF;
+/*	border:solid 1px #4529FF;*/
 	text-align:center;
-	flex:1;
+	margin:0 auto;
+}
+
+#centralWrapper section article
+{
+	margin:0 auto;
+}
+
+#formulaireLogin
+{
+	padding:5px;
+	border:1px solid red;
+	border-radius:20px;
 }
 
 footer

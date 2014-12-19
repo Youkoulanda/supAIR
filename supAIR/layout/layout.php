@@ -2,7 +2,7 @@
 <html lang="fr">
 	<head>
 		<meta charset="utf-8"/>
-		<title>Ton appli !</title>
+		<title>Bossbouc</title>
 		<link rel="stylesheet" type="text/css" href="css/layout.css">
 	</head>
 	<body>
