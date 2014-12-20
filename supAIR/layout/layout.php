@@ -3,7 +3,8 @@
 	<head>
 		<meta charset="utf-8"/>
 		<title>Bossbouc</title>
-		<link rel="stylesheet" type="text/css" href="css/layout.css">
+		<!--<link rel="stylesheet" type="text/css" href="css/layout.css">-->
+		<link rel="stylesheet" type="text/css" href="css/screen.css">
 	</head>
 	<body>
 		<div id="mainWrapper">
@@ -18,7 +19,10 @@
 							<ul id="friendList">';
 								include($nameApp."/view/menu.php");
 					echo'	</ul>
-						</aside>';
+						</aside>
+						<div id="chatbox" title="Chatdesboss">';
+							include($nameApp."/view/chat.php");
+						echo '</div>';
 				}
 			?>
 			<div id="centralWrapper">
@@ -31,10 +35,7 @@
 					</article>
 				</section>
 			</div>
-		</div>	
-		<footer id="chatbox" title="Chatdesboss">
-			<?php include($nameApp."/view/chat.php"); ?>
-		</footer>
+		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
 		<script src="js/chatPosting.js"></script>

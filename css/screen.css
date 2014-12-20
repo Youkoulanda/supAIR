@@ -1,0 +1,191 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 5, ../../../../../../../home/etudiants/inf/uapv1201349/opt/lib/ruby/gems/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../../home/etudiants/inf/uapv1201349/opt/lib/ruby/gems/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../../home/etudiants/inf/uapv1201349/opt/lib/ruby/gems/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../../home/etudiants/inf/uapv1201349/opt/lib/ruby/gems/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../../home/etudiants/inf/uapv1201349/opt/lib/ruby/gems/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../../home/etudiants/inf/uapv1201349/opt/lib/ruby/gems/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../../home/etudiants/inf/uapv1201349/opt/lib/ruby/gems/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../../home/etudiants/inf/uapv1201349/opt/lib/ruby/gems/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../../home/etudiants/inf/uapv1201349/opt/lib/ruby/gems/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 16, ../sass/screen.scss */
+html {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 22, ../sass/screen.scss */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: helvetica;
+  background-color: #FF3333;
+  height: 100%;
+}
+
+/* line 31, ../sass/screen.scss */
+#mainWrapper {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+/* line 37, ../sass/screen.scss */
+#mainWrapper #verticalBanner {
+  background-color: #FF3333;
+  overflow: auto;
+  overflow-x: hidden;
+  height: 100%;
+  position: fixed;
+}
+/* line 45, ../sass/screen.scss */
+#mainWrapper #verticalBanner #friendList {
+  list-style-type: none;
+}
+/* line 49, ../sass/screen.scss */
+#mainWrapper #verticalBanner #friendList a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: white;
+  text-decoration: none;
+}
+/* line 57, ../sass/screen.scss */
+#mainWrapper #verticalBanner #friendList a :hover {
+  color: grey;
+}
+/* line 62, ../sass/screen.scss */
+#mainWrapper #verticalBanner #friendList a li {
+  border-top: 1px solid grey;
+  padding-left: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+/* line 73, ../sass/screen.scss */
+#mainWrapper #centralWrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+/* line 80, ../sass/screen.scss */
+#mainWrapper #centralWrapper header {
+  text-align: center;
+  height: 50px;
+  background-color: #19FF5A;
+}
+/* line 85, ../sass/screen.scss */
+#mainWrapper #centralWrapper header h2 {
+  font-size: 3em;
+  color: white;
+}
+/* line 92, ../sass/screen.scss */
+#mainWrapper #centralWrapper section {
+  width: 100%;
+  margin: 0 auto;
+}
+/* line 97, ../sass/screen.scss */
+#mainWrapper #centralWrapper section article {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* line 107, ../sass/screen.scss */
+#blocConnexion {
+  margin: 0 auto;
+  display: table;
+  height: 100px;
+  border: 1px solid black;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+/* line 116, ../sass/screen.scss */
+#blocConnexion p {
+  display: table-row;
+  text-align: center;
+  margin: 0 auto;
+  color: white;
+  font-size: 1.5em;
+  margin-top: 20px;
+}
+/* line 126, ../sass/screen.scss */
+#blocConnexion #formulaireLogin {
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+  width: 230px;
+  padding: 5px;
+  line-height: normal;
+}
+/* line 134, ../sass/screen.scss */
+#blocConnexion #formulaireLogin input[type=password], #blocConnexion #formulaireLogin input[type=submit] {
+  margin-top: 10px;
+}
+
+/* line 141, ../sass/screen.scss */
+#chatbox {
+  width: 200px;
+}
+/* line 145, ../sass/screen.scss */
+#chatbox form {
+  flex-direction: row;
+}
