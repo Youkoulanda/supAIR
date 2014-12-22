@@ -1,7 +1,7 @@
 <?php
 /*
  * All doc on :
- * Toutes les actions disponibles dans l'application 
+ * Toutes les actions disponibles dans l'application
  *
  */
 
@@ -9,13 +9,13 @@ class mainController
 {
 	public static function updateChat($request,$context)
 	{
-		$context->lastID=$_REQUEST['id'];	
+		$context->lastID=$_REQUEST['id'];
 		return context::SUCCESS;
 	}
 
 	public static function addChat($request,$context)
 	{
-		chatTable::addChat($_REQUEST['text'],$_REQUEST['id']);	
+		chatTable::addChat($_REQUEST['text'],$_REQUEST['id']);
 	}
 
 	public static function index($request,$context)

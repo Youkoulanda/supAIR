@@ -10,8 +10,8 @@ $flashRed:#FF1919;
 $flatRed:#FF3333;
 $darkGreen:#00B233;
 $flatGreen:#19FF5A;
-
 $bleuMoisi:#4529FF;
+$backgroundColor:#FFFFFF;
 
 html
 {
@@ -24,7 +24,7 @@ body
 	margin:0;
 	padding:0;
 	font-family:helvetica;
-	background-color:$flatRed;
+	background-color:$backgroundColor;
 	height:100%;
 }
 
@@ -36,7 +36,7 @@ body
 
 	#verticalBanner
 	{
-		background-color:$flatRed;
+		background-color:$bleuMoisi;
 		overflow:auto;
 		overflow-x:hidden;
 		height:100%;
@@ -81,7 +81,7 @@ body
 		{
 			text-align:center;
 			height:50px;
-			background-color:$flatGreen;
+			background-color:$bleuMoisi;
 			h2
 			{
 				font-size:3em;
@@ -110,7 +110,6 @@ body
 	display:table;
 	height:100px;
 	border:1px solid black;
-	border-radius:20px;
 	margin-top:20px;
 
 	p
@@ -138,9 +137,25 @@ body
 	}
 }
 
+.ui-dialog-titlebar
+{
+	background-color:$bleuMoisi;
+	color:white;
+	font-weight:bold;
+	.ui-button
+	{
+		margin-left:185px;
+		border:none;
+		background-color:$bleuMoisi;
+		color:white;
+		border-left:2px solid white;
+	}
+}
+
 #chatbox
 {
 	width:200px;
+	border:1px solid $bleuMoisi;
 
 	form
 	{

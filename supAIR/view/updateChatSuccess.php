@@ -9,5 +9,4 @@
 		$post=$chat->c_post;
 		include("post.php");
 	}
-
 ?>

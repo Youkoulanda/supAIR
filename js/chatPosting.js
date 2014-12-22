@@ -6,6 +6,8 @@
        data : 'action=addChat&text=' +$("#chatText").val() + '&id=' +<?php echo $context->getSessionAttribute("id"); ?>
     });
 });*/
-	  $(function() {
-		  $( "#chatbox" ).dialog();
-	  });
+$( "#chatbox" ).dialog(
+{
+	closeText:"X",
+	position :{ my: "center ", at: "right bottom", of: window }
+});

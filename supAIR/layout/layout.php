@@ -20,7 +20,7 @@
 								include($nameApp."/view/menu.php");
 					echo'	</ul>
 						</aside>
-						<div id="chatbox" title="Chatdesboss">';
+						<div id="chatbox" title="BossChat">';
 							include($nameApp."/view/chat.php");
 						echo '</div>';
 				}
