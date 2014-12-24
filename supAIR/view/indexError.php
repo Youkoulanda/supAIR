@@ -1,6 +1,3 @@
-<!--<p>
-	Connectez-vous pour avoir accès au contenu du site:
-</p>-->
 	<div id="blocConnexion">
 		<p>Connexion</p>
 		<form id="formulaireLogin" action="supAIR.php?action=login" method="post">

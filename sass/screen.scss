@@ -82,6 +82,7 @@ body
 			text-align:center;
 			height:50px;
 			background-color:$bleuMoisi;
+			margin-bottom:5px;
 			h2
 			{
 				font-size:3em;
@@ -93,17 +94,7 @@ body
 		{
 			width:100%;
 			margin:0 auto;
-
-			article
-			{
-				width:100%;
-				margin:0 auto;
-				text-align:center;
-
-				#message
-				{
-				}
-			}
+			text-align:center;
 		}
 	}
 }
@@ -134,10 +125,22 @@ body
 		width:230px;
 		padding:5px;
 		line-height:normal;
+
 		input[type=password], input[type=submit]
 		{
 			margin-top:10px;
 		}
+	}
+}
+
+#profil
+{
+	display:table;
+	margin:0 auto;
+
+	#pseudo
+	{
+		margin-bottom:2px;
 	}
 }
 

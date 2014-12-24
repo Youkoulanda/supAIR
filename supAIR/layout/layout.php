@@ -30,9 +30,9 @@
 					<h2>BossBouc</h2>
 				</header>
 				<section>
-					<article>
+					<!--<article> -->
 						<?php include($template_view); ?>
-					</article>
+					<!-- </article>-->
 				</section>
 			</div>
 		</div>
