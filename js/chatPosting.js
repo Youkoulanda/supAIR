@@ -9,5 +9,5 @@
 $( "#chatbox" ).dialog(
 {
 	closeText:"X",
-	position :{ my: "center ", at: "right bottom", of: window }
+	position :{ my: "right bottom", at: "right bottom", of: window }
 });

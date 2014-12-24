@@ -13,7 +13,7 @@ if($context->viewProfileUser->avatar == "")
 else
 	$srcImage = $context->viewProfileUser->avatar;
 echo '<img height="140px" src="'.$srcImage.'" alt="photo de profil de '.$context->viewProfileUser->identifiant.'"/><br/>';
-echo $context->viewProfileUser->nom.' '.$context->viewProfileUser->prenom.'<br/>';
+echo $context->viewProfileUser->prenom.' '.$context->viewProfileUser->nom.'<br/>';
 echo $context->viewProfileUser->date_de_naissance.'<br/>';
 echo $context->viewProfileUser->statut.'<br/>';
 if($context->viewProfileUser->id == $context->getSessionAttribute("id"))
