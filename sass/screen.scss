@@ -76,6 +76,7 @@ body
 		display:flex;
 		flex-direction:column;
 		flex:1;
+		text-align:center;
 
 		header
 		{
@@ -148,20 +149,56 @@ body
 {
 	width:50%;
 	display:flex;
+	flex-direction:column;
 	border-top:1px solid black;
 	border-left:1px solid black;
 	border-right:1px solid black;
 	margin:0 auto;
-	#userPicture
+
+	#shared
 	{
-		border:1px solid red;
+		margin-top:2px;
 	}
-	#header
+
+	#content
 	{
-		border:1px solid blue;
+		text-align:left;
+		padding-top:5px;
+
+		img
+		{
+			margin-left:5px;
+			margin-right:5px;
+			float:left;
+		}
+
+		#author, #text
+		{
+			display:inline-block;
+		}
+
+		#author
+		{
+			#nameSurname
+			{
+				font-weight:bold;
+			}
+
+			#pseudo
+			{
+				color:grey;
+			}
+		}
+
+		#footer
+		{
+			clear:left;
+			text-align:left;
+			margin-top:10px;
+			margin-bottom:5px;
+			margin-left:58px;
+		}
 	}
-	//#content
-	//#footer
 }
 
 .ui-dialog-titlebar
@@ -169,6 +206,7 @@ body
 	background-color:$bleuMoisi;
 	color:white;
 	font-weight:bold;
+
 	.ui-button
 	{
 		margin-left:185px;

@@ -29,11 +29,7 @@
 				<header>
 					<h2>BossBouc</h2>
 				</header>
-				<section>
-					<!--<article> -->
 						<?php include($template_view); ?>
-					<!-- </article>-->
-				</section>
 			</div>
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>

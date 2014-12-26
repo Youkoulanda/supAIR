@@ -3,7 +3,7 @@
 //Objectifs: Afficher le profil d'un utilisateur
 ?>
 
-<article id="profil">
+<section id="profil">
 	<div id="pseudo">
 		<?php
 			if($context->viewProfileUser->id == $context->getSessionAttribute("id"))
@@ -20,7 +20,7 @@
 		echo date("d-m-Y", strtotime($context->viewProfileUser->date_de_naissance)).'<br/>';
 		echo $context->viewProfileUser->statut.'<br/>';
 	?>
-</article>
+</section>
 
 <?php
 	if($context->viewProfileUser->id == $context->getSessionAttribute("id"))
@@ -34,7 +34,10 @@
 				<input type="text" name="messageto" placeholder="Envoyez un message &agrave; '.$context->viewProfileUser->identifiant.'">
 				<input type="submit" value="Envoyer">
 			</form>';
-
-	foreach(messageTable::getMessagesByDestinataire($context->viewProfileUser->id) as $message)
-		include($nameApp."/view/message.php");
 ?>
+<section id="messageList">
+	<?php
+		foreach(messageTable::getMessagesByDestinataire($context->viewProfileUser->id) as $message)
+			include($nameApp."/view/message.php");
+	?>
+</section>
