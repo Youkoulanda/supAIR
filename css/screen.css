@@ -187,12 +187,30 @@ body {
 }
 
 /* line 147, ../sass/screen.scss */
+#message {
+  width: 50%;
+  display: flex;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  margin: 0 auto;
+}
+/* line 155, ../sass/screen.scss */
+#message #userPicture {
+  border: 1px solid red;
+}
+/* line 159, ../sass/screen.scss */
+#message #header {
+  border: 1px solid blue;
+}
+
+/* line 167, ../sass/screen.scss */
 .ui-dialog-titlebar {
   background-color: #4529FF;
   color: white;
   font-weight: bold;
 }
-/* line 152, ../sass/screen.scss */
+/* line 172, ../sass/screen.scss */
 .ui-dialog-titlebar .ui-button {
   margin-left: 185px;
   border: none;
@@ -201,12 +219,12 @@ body {
   border-left: 2px solid white;
 }
 
-/* line 162, ../sass/screen.scss */
+/* line 182, ../sass/screen.scss */
 #chatbox {
   width: 200px;
   border: 1px solid #4529FF;
 }
-/* line 167, ../sass/screen.scss */
+/* line 187, ../sass/screen.scss */
 #chatbox form {
   flex-direction: row;
 }

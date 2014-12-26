@@ -144,6 +144,26 @@ body
 	}
 }
 
+#message
+{
+	width:50%;
+	display:flex;
+	border-top:1px solid black;
+	border-left:1px solid black;
+	border-right:1px solid black;
+	margin:0 auto;
+	#userPicture
+	{
+		border:1px solid red;
+	}
+	#header
+	{
+		border:1px solid blue;
+	}
+	//#content
+	//#footer
+}
+
 .ui-dialog-titlebar
 {
 	background-color:$bleuMoisi;
