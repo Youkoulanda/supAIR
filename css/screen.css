@@ -188,7 +188,7 @@ body {
 }
 
 /* line 148, ../sass/screen.scss */
-#message {
+.message {
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -198,48 +198,62 @@ body {
   margin: 0 auto;
 }
 /* line 158, ../sass/screen.scss */
-#message #shared {
+.message #shared {
   margin-top: 2px;
 }
 /* line 163, ../sass/screen.scss */
-#message #content {
+.message #content {
   text-align: left;
   padding-top: 5px;
 }
 /* line 168, ../sass/screen.scss */
-#message #content img {
+.message #content img {
   margin-left: 5px;
   margin-right: 5px;
   float: left;
 }
 /* line 175, ../sass/screen.scss */
-#message #content #author, #message #content #text {
+.message #content #author, .message #content #text {
   display: inline-block;
 }
 /* line 182, ../sass/screen.scss */
-#message #content #author #nameSurname {
+.message #content #author #nameSurname {
   font-weight: bold;
 }
 /* line 187, ../sass/screen.scss */
-#message #content #author #pseudo {
+.message #content #author #pseudo {
   color: grey;
 }
 /* line 193, ../sass/screen.scss */
-#message #content #footer {
+.message #content #footer {
   clear: left;
   text-align: left;
   margin-top: 10px;
   margin-bottom: 5px;
   margin-left: 58px;
 }
+/* line 201, ../sass/screen.scss */
+.message #content #footer #likeIcon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url(../images/like.png);
+}
+/* line 209, ../sass/screen.scss */
+.message #content #footer #likeIcon:hover {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url("../images/likeHover.png");
+}
 
-/* line 204, ../sass/screen.scss */
+/* line 221, ../sass/screen.scss */
 .ui-dialog-titlebar {
   background-color: #4529FF;
   color: white;
   font-weight: bold;
 }
-/* line 210, ../sass/screen.scss */
+/* line 227, ../sass/screen.scss */
 .ui-dialog-titlebar .ui-button {
   margin-left: 185px;
   border: none;
@@ -248,12 +262,12 @@ body {
   border-left: 2px solid white;
 }
 
-/* line 220, ../sass/screen.scss */
+/* line 237, ../sass/screen.scss */
 #chatbox {
   width: 200px;
   border: 1px solid #4529FF;
 }
-/* line 225, ../sass/screen.scss */
+/* line 242, ../sass/screen.scss */
 #chatbox form {
   flex-direction: row;
 }

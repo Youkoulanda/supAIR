@@ -9,6 +9,7 @@
 $( "#chatbox" ).dialog(
 {
 	closeText:"X",
+	autoOpen: false,
 	resizable:false,
 	position :{ my: "right bottom", at: "right bottom", of: window }
 });

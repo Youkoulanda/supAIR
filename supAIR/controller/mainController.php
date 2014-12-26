@@ -48,10 +48,51 @@ class mainController
 	{
 		if($context->getSessionAttribute("login")!=null)
 		{
-			$context->viewProfileUser = utilisateurTable::getUserById($_REQUEST['id']);
+			$context->viewProfileUser = utilisateurTable::getUserById($request['id']);
 			return context::SUCCESS;
 		}
 
+		return context::ERROR;
+	}
+
+	public static function addNewMessage($request, $context)
+	{
+		if($context->getSessionAttribute("login") != null)
+		{
+			/*if($request['latestMessageID'] != '')
+			{
+				$context->messages = messageTable::getNewerThan(53);
+			}
+			else
+				$context->messages = messageTable::getMessagesByDestinataire($context->id);
+			*/
+			//messageTable::addNewMessage($request['senderID'], $request['recipientID'], $request['messageText']);
+			return context::SUCCESS;
+		}
+
+		return context::ERROR;
+	}
+
+	public static function shareMessage($request, $context)
+	{
+		if($context->getSessionAttribute("login") != null)
+		{
+			//messageTable::shareMessage($request['toShareID'], $request['sender']);
+			//If right return
+			return context::SUCCESS;
+		}
+
+		return context::ERROR;
+	}
+
+	public static function likeMessage($request, $context)
+	{
+		if($context->getSessionAttribute("login") != null)
+		{
+			//messageTable::likeMessage($request["likeID"]);
+			//If right return
+			return context::SUCCESS;
+		}
 		return context::ERROR;
 	}
 }

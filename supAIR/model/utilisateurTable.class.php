@@ -19,7 +19,7 @@ class utilisateurTable extends Doctrine_Table{
 		if ($res == false){
 			echo 'Erreur sql';
 		}
-		return $res; 
+		return $res;
 	}
 
 	//Auteur: Daniel Salas

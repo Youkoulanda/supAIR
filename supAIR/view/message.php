@@ -7,7 +7,7 @@
 		$userPicture = "images/dummy.jpg";
 ?>
 
-<article id="message">
+	<article class="message" id="<?php echo $message->id?>">
 	<?php
 		if($isShared)
 			echo '<p id="shared">
@@ -33,7 +33,7 @@
 		<p id="footer">
 			<?php
 				$likeNumber = ($message->aime) ? $message->aime : 0;
-				echo $likeNumber." personnes aime(nt) ça.<br/>";
+				echo '<span id="likeIcon"></span> '.$likeNumber;
 			?>
 		</p>
 	</div>

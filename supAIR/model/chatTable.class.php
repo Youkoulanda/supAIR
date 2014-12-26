@@ -30,7 +30,7 @@ class chatTable extends Doctrine_Table{
 		}
 		return $res;
 	}
-	
+
 	public static function getTenLastChats()
 	{
 		$connection = dbconnection::getInstance();
@@ -43,7 +43,7 @@ class chatTable extends Doctrine_Table{
 		$collection=$req->execute();
 		$orderedCollection = new Doctrine_Collection('chat');
 		for($i=$collection->count()-1; $i>=0; $i--)
-			 $orderedCollection->add($collection->get($i));
+			$orderedCollection->add($collection->get($i));
 
 		return $orderedCollection;
 	}
@@ -65,6 +65,6 @@ class chatTable extends Doctrine_Table{
 		$chat=new Chat();
 		$chat->emetteur=$id;
 		$chat->post=postTable::addPost($text,"");
-		$chat->save();	
+		$chat->save();
 	}
 }

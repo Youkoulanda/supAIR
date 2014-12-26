@@ -37,5 +37,4 @@ if($view===false){
 elseif($view!=context::NONE){
 	include($nameApp."/view/".$action.$view.".php");
 }
-
 ?>

@@ -1,21 +1,21 @@
 <?php
-// Classe definissant la table utilisateur dans le SGBDR
+// Classe definissant la table message dans le SGBDR
 
 class message extends Doctrine_Record{
 
 	public function setTableDefinition(){
-        	// On définit le nom de notre table  :utilisateur.
-        	$this->setTableName('message');
-        
-    		//Puis, tous les champs
-        	$this->hasColumn('id', 'integer', 8, array('primary' => true,
-                           'autoincrement' => true));
-        	$this->hasColumn('emetteur', 'integer');
-        	$this->hasColumn('destinataire', 'integer');
-    		$this->hasColumn('parent', 'integer');
-    		$this->hasColumn('post', 'integer');
-    		$this->hasColumn('aime', 'integer');
-    	}
+		// On définit le nom de notre table  :message.
+		$this->setTableName('message');
+
+		//Puis, tous les champs
+		$this->hasColumn('id', 'integer', 8, array('primary' => true,
+			'autoincrement' => true));
+		$this->hasColumn('emetteur', 'integer');
+		$this->hasColumn('destinataire', 'integer');
+		$this->hasColumn('parent', 'integer');
+		$this->hasColumn('post', 'integer');
+		$this->hasColumn('aime', 'integer');
+	}
 
 	public function setUp()
 	{

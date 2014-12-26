@@ -145,7 +145,7 @@ body
 	}
 }
 
-#message
+.message
 {
 	width:50%;
 	display:flex;
@@ -197,10 +197,27 @@ body
 			margin-top:10px;
 			margin-bottom:5px;
 			margin-left:58px;
+
+			#likeIcon
+			{
+				display:inline-block;
+				width:16px;
+				height:16px;
+				background-image:url(../images/like.png);
+			}
+
+			#likeIcon:hover
+			{
+				display:inline-block;
+				width:16px;
+				height:16px;
+				background-image:url("../images/likeHover.png");
+			}
 		}
 	}
 }
 
+//Chat
 .ui-dialog-titlebar
 {
 	background-color:$bleuMoisi;

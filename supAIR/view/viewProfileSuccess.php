@@ -30,8 +30,10 @@
 				<input type="submit" value="Valider">
 			</form>';
 			echo '<br/><br/>
-			<form>
-				<input type="text" name="messageto" placeholder="Envoyez un message &agrave; '.$context->viewProfileUser->identifiant.'">
+			<form method="post" id="addMessage">
+				<input type="hidden" id="senderID" name="senderID" value="'.$context->getSessionAttribute("id").'" />
+				<input type="hidden" id="recipientID" name="recipientID" value="'.$context->viewProfileUser->id.'" />
+				<input type="text" name="messageText" placeholder="Envoyez un message &agrave; '.$context->viewProfileUser->identifiant.'">
 				<input type="submit" value="Envoyer">
 			</form>';
 ?>
