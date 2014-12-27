@@ -49,6 +49,10 @@ class mainController
 		if($context->getSessionAttribute("login")!=null)
 		{
 			$context->viewProfileUser = utilisateurTable::getUserById($request['id']);
+			$context->srcAvatar = ($context->viewProfileUser->avatar == "") ? "images/dummy.jpg" : $context->viewProfileUser->avatar;
+			$context->userBirthdate = date("d-m-Y", strtotime($context->viewProfileUser->date_de_naissance));
+			$context->messages = messageTable::getMessagesByDestinataire($context->viewProfileUser->id);
+
 			return context::SUCCESS;
 		}
 

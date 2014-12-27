@@ -6,18 +6,17 @@
 <section id="profil">
 	<div id="pseudo">
 		<?php
-			if($context->viewProfileUser->id == $context->getSessionAttribute("id"))
-				echo "Votre profil";
+			if($viewProfileUser->id == $context->getSessionAttribute("id"))
+				echo "Votre Profil";
 			else
-				echo "Profil de ".$context->viewProfileUser->identifiant."<br/>";
+				echo "Profil de ".$context->viewProfileUser->identifiant;
 		?>
 	</div>
 
 	<?php
-		$srcImage = ($context->viewProfileUser->avatar == "") ? "images/dummy.jpg" : $context->viewProfileUser->avatar;
-		echo '<img height="140px" src="'.$srcImage.'" alt="photo de profil de '.$context->viewProfileUser->identifiant.'"/><br/>';
+		echo '<img height="140px" src="'.$context->srcAvatar.'" alt="photo de profil de '.$context->viewProfileUser->identifiant.'"/><br/>';
 		echo $context->viewProfileUser->prenom.' '.$context->viewProfileUser->nom.'<br/>';
-		echo date("d-m-Y", strtotime($context->viewProfileUser->date_de_naissance)).'<br/>';
+		echo $context->userBirthdate.'<br/>';
 		echo $context->viewProfileUser->statut.'<br/>';
 	?>
 </section>
@@ -25,21 +24,23 @@
 <?php
 	if($context->viewProfileUser->id == $context->getSessionAttribute("id"))
 		echo
-			'<form>
+			'<form id="changeStatus">
 				<input type="text" name="statut" placeholder="Changez votre statut si vous voulez">
 				<input type="submit" value="Valider">
 			</form>';
-			echo '<br/><br/>
-			<form method="post" id="addMessage">
-				<input type="hidden" id="senderID" name="senderID" value="'.$context->getSessionAttribute("id").'" />
-				<input type="hidden" id="recipientID" name="recipientID" value="'.$context->viewProfileUser->id.'" />
-				<input type="text" name="messageText" placeholder="Envoyez un message &agrave; '.$context->viewProfileUser->identifiant.'">
-				<input type="submit" value="Envoyer">
-			</form>';
+
+	echo '<br/><br/>';
 ?>
 <section id="messageList">
+	<form method="post" id="addMessage">
+		<input type="hidden" id="senderID" name="senderID" value="<?php echo $context->getSessionAttribute("id") ?>" />
+		<input type="hidden" id="recipientID" name="recipientID" value="<?php echo $context->viewProfileUser->id ?>" />
+		<input type="text" name="messageText" placeholder="Envoyez un message &agrave; <?php echo $context->viewProfileUser->identifiant ?>">
+		<input type="submit" value="Envoyer">
+	</form>
+
 	<?php
-		foreach(messageTable::getMessagesByDestinataire($context->viewProfileUser->id) as $message)
+		foreach($context->messages as $message)
 			include($nameApp."/view/message.php");
 	?>
 </section>

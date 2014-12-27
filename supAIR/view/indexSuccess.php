@@ -1,1 +1,1 @@
-Coucou vous êtes connecté, vous avez retrouvé vos identifiants donc vous êtes un boss.
+</p>Coucou vous êtes connecté, vous avez retrouvé vos identifiants donc vous êtes un boss.</p>

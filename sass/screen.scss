@@ -73,6 +73,7 @@ body
 	#centralWrapper
 	{
 		height:100%;
+		width:100%;
 		display:flex;
 		flex-direction:column;
 		flex:1;
@@ -89,13 +90,6 @@ body
 				font-size:3em;
 				color:white;
 			}
-		}
-
-		section
-		{
-			width:100%;
-			margin:0 auto;
-			text-align:center;
 		}
 	}
 }
@@ -122,7 +116,7 @@ body
 	{
 		text-align:center;
 		vertical-align:middle;
-		display:table-cell;;
+		display:table-cell;
 		width:230px;
 		padding:5px;
 		line-height:normal;
@@ -145,9 +139,42 @@ body
 	}
 }
 
-.message
+#changeStatus
+{
+	margin-bottom:10px;
+}
+
+//Messages Mur
+
+#messageList
 {
 	width:50%;
+	margin:0 auto;
+	border-bottom:1px solid black;
+}
+
+#addMessage
+{
+	width:100%;
+	text-align:center;
+	border-top:1px solid black;
+	border-right:1px solid black;
+	border-left:1px solid black;
+
+	input[type=text]
+	{
+		width:90%;
+	}
+
+	input[type=submit]
+	{
+
+	}
+}
+
+.message
+{
+	width:100%;
 	display:flex;
 	flex-direction:column;
 	border-top:1px solid black;
@@ -216,6 +243,8 @@ body
 		}
 	}
 }
+
+//Fin Messages Mur
 
 //Chat
 .ui-dialog-titlebar
