@@ -1,39 +1,36 @@
 <?php
-	$isShared = ($message->m_parent != $message->m_emetteur) ? true : false;
-	$userPicture = ($isShared) ? $message->m_parent->avatar : $message->m_emetteur->avatar;
-	$author = ($isShared) ? $message->m_parent : $message->m_emetteur;
-
-	//if($userPicture = "")
-		$userPicture = "images/dummy.jpg";
+	if($message['userPicture'] == "")
+			$message['userPicture'] = "images/dummy.jpg";
 ?>
 
-	<article class="message" id="<?php echo $message->id?>">
+	<article class="message" id="<?php echo $message['content']->id?>">
 	<?php
-		if($isShared)
-			echo '<p id="shared">
-					Ce message a été partagé par '.$message->m_emetteur->prenom.' '.$message->m_emetteur->nom.'
-				</p>';
+		if($message['isShared'])
+			echo '<p class="shared">'
+					.$message['content']->m_emetteur->prenom.' '.$message['content']->m_emetteur->nom.' a partagé'.
+				'</p>';
 	?>
 
-	<div id="content">
+	<div class="content">
 		<?php
-			echo '<img src="'.$userPicture.'" alt="photo de profil" width="48px" height="48px" />';
+			echo '<img src="'.$message['userPicture'].'" alt="photo de profil" width="48px" height="48px" />';
 		?>
-		<p id="author">
+		<p class="author">
 			<?php
-				echo '<span id="nameSurname">'.$author->prenom." ".$author->nom.'</span> <span id="pseudo">'.$author->identifiant.'</span>';
+				echo '<span class="nameSurname">'.$message['author']->prenom." ".$message['author']->nom.'</span> <span class="pseudo">'.$message['author']->identifiant.'</span>';
 			?>
 		</p><br/>
-		<p id="text">
+		<p class="text">
 			<?php
-				$post=$message->m_post;
+				$post=$message['content']->m_post;
 				include("post.php");
 			?>
 		</p>
-		<p id="footer">
+		<p class="footer">
 			<?php
-				$likeNumber = ($message->aime) ? $message->aime : 0;
-				echo '<span id="likeIcon"></span> '.$likeNumber;
+				$likeNumber = ($message['content']->aime) ? $message['content']->aime : 0;
+				echo '<span class="likeIcon"></span> <span class="likeNumber">'.$likeNumber.'</span>';
+				echo '   <span class="shareIcon"></span>'
 			?>
 		</p>
 	</div>

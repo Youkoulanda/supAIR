@@ -51,8 +51,18 @@ class mainController
 			$context->viewProfileUser = utilisateurTable::getUserById($request['id']);
 			$context->srcAvatar = ($context->viewProfileUser->avatar == "") ? "images/dummy.jpg" : $context->viewProfileUser->avatar;
 			$context->userBirthdate = date("d-m-Y", strtotime($context->viewProfileUser->date_de_naissance));
-			$context->messages = messageTable::getMessagesByDestinataire($context->viewProfileUser->id);
+			$messages = array();
+			foreach(messageTable::getMessagesByDestinataire($context->viewProfileUser->id) as $message)
+			{
+				$isShared = ($message->m_parent != $message->m_emetteur) ? true : false;
 
+				$messages[] = array(
+				'isShared' => $isShared,
+				'userPicture' => ($isShared) ? $message->m_parent->avatar : $message->m_emetteur->avatar,
+				'author' => ($isShared) ? $message->m_parent : $message->m_emetteur,
+				'content' => $message);
+			}
+			$context->messages = $messages;
 			return context::SUCCESS;
 		}
 
@@ -63,15 +73,17 @@ class mainController
 	{
 		if($context->getSessionAttribute("login") != null)
 		{
-			/*if($request['latestMessageID'] != '')
-			{
-				$context->messages = messageTable::getNewerThan(53);
-			}
+			if($request['latestMessageID'] != '')
+				$context->messages = messageTable::getNewerThan($request['latestMessageID']);
 			else
-				$context->messages = messageTable::getMessagesByDestinataire($context->id);
-			*/
-			//messageTable::addNewMessage($request['senderID'], $request['recipientID'], $request['messageText']);
-			return context::SUCCESS;
+				$context->messages = messageTable::getMessagesByDestinataire($context->viewProfileUser->id);
+
+			$sender = utilisateurTable::getUserById($request['senderID']);
+			$recipient = utilisateurTable::getUserById($request['recipientID']);
+			$post = postTable::addPost($request['messageText']);
+
+			if(messageTable::addNewMessage($sender, $recipient, $post))
+				return context::SUCCESS;
 		}
 
 		return context::ERROR;
@@ -81,9 +93,10 @@ class mainController
 	{
 		if($context->getSessionAttribute("login") != null)
 		{
-			//messageTable::shareMessage($request['toShareID'], $request['sender']);
-			//If right return
-			return context::SUCCESS;
+			$toShareMessageID = $request['toShareMessageID'];
+			$sender = utilisateurTable::getUserById($context->getSessionAttribute('id'));
+			if(messageTable::shareMessage($toShareMessageID, $sender))
+				return context::SUCCESS;
 		}
 
 		return context::ERROR;
@@ -93,10 +106,12 @@ class mainController
 	{
 		if($context->getSessionAttribute("login") != null)
 		{
-			//messageTable::likeMessage($request["likeID"]);
-			//If right return
+			$toLikeMessageID = $request['toLikeMessageID'];
+			messageTable::likeMessage($toLikeMessageID);
+			$context->likeNumber = messageTable::getLikeNumberFromMessage($toLikeMessageID);
 			return context::SUCCESS;
 		}
+
 		return context::ERROR;
 	}
 }

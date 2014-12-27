@@ -8,6 +8,8 @@ class messageTable extends Doctrine_Table{
 	//But: réalisation de la fonction getMessageById(id)
 	public static function getMessageById($id)
 	{
+		$connection = dbconnection::getInstance();
+
 		$req = Doctrine_Query::create()
 			->from('message u')
 			->where('u.id = ?', $id);
@@ -18,6 +20,8 @@ class messageTable extends Doctrine_Table{
 
 	public static function getMessagesByDestinataire($id)
 	{
+		$connection = dbconnection::getInstance();
+
 		$req = Doctrine_Query::create()
 			->from('message m')
 			->where('m.destinataire = ?', $id)
@@ -30,6 +34,8 @@ class messageTable extends Doctrine_Table{
 	//But : récupérer les message du mur ajoutés après celui qui a l'ID lastID
 	public static function getNewerThan($lastID)
 	{
+		$connection = dbconnection::getInstance();
+
 		$req = Doctrine_Query::create()
 			->from('message z')
 			->where('z.id > ?', $lastID)
@@ -38,43 +44,63 @@ class messageTable extends Doctrine_Table{
 		return $req->execute();
 	}
 
-	private static function createMessage($senderID, $recipientID, $text, $picture = "")
+	private static function createMessage($sender, $recipient, $parent, $post, $aime = "")
 	{
-		$sender = utilisateurTable::getUserById($senderID);
-		$recipient = utilisateurTable::getUserById($recipientID);
+		$connection = dbconnection::getInstance();
+
 		$message = new message();
 		$message->m_emetteur = $sender;
 		$message->m_destinataire = $recipient;
-		$message->m_parent = $sender;
-		$message->m_post = postTable::addPost($text, $picture);
+		$message->m_parent = $parent;
+		$message->m_post = $post;
 		$message->aime = 0;
 		return $message->trySave();
 	}
 
-	public static function addNewMessage($senderID, $recipientID, $messageText, $picture = "")
+	public static function addNewMessage($sender, $recipient, $post)
 	{
-		$messageText = htmlentities($messageText);
-
-		if(get_magic_quotes_gpc()===1)
-			$messageText = stripslashes($messageText);
-
-		if(strlen($messageText) > 2000)
-			return "Message trop long";
-		return self::createMessage($senderID, $recipientID, $messageText, $picture);
+		return self::createMessage($sender, $recipient, $sender, $post);
 	}
 
 	public static function likeMessage($id)
 	{
-		$message = getMessageById($id);
+		$connection = dbconnection::getInstance();
+
+		$message = self::getMessageById($id);
 		$message->aime++;
 		return $message->trySave();
 	}
 
+	private static function alreadyShareBy($messageToShare, $userID)
+	{
+		$connection = dbconnection::getInstance();
+
+		foreach(self::getMessagesByDestinataire($userID) as $message)
+			if($messageToShare->m_post->id == $message->m_post->id)
+				return true;
+		return false;
+	}
+
 	public static function shareMessage($toShareID, $sender)
 	{
-		$messageToShare = getMessageById($toShareID);
-		return createMessage($sender, utilisateurTable::getUserById($messageToShare->destinataire),
-			$messageToShare->m_post->texte,
-			$messageToShare->m_post->image);
+		$connection = dbconnection::getInstance();
+
+		$messageToShare = self::getMessageById($toShareID);
+		if(!self::alreadyShareBy($messageToShare, $sender))
+			return self::createMessage($sender,
+				$sender,
+				$messageToShare->m_parent,
+				$messageToShare->m_post,
+				$messageToShare->aime);
+		else
+			return false;
+	}
+
+	public static function getLikeNumberFromMessage($messageID)
+	{
+		$connection = dbconnection::getInstance();
+
+		$message = self::getMessageById($messageID);
+		return $message->aime;
 	}
 }

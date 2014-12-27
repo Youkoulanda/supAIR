@@ -145,7 +145,6 @@ body
 }
 
 //Messages Mur
-
 #messageList
 {
 	width:50%;
@@ -161,14 +160,10 @@ body
 	border-right:1px solid black;
 	border-left:1px solid black;
 
-	input[type=text]
+	textarea
 	{
 		width:90%;
-	}
-
-	input[type=submit]
-	{
-
+		resize:none;
 	}
 }
 
@@ -182,12 +177,12 @@ body
 	border-right:1px solid black;
 	margin:0 auto;
 
-	#shared
+	.shared
 	{
 		margin-top:2px;
 	}
 
-	#content
+	.content
 	{
 		text-align:left;
 		padding-top:5px;
@@ -199,25 +194,25 @@ body
 			float:left;
 		}
 
-		#author, #text
+		.author, .text
 		{
 			display:inline-block;
 		}
 
-		#author
+		.author
 		{
-			#nameSurname
+			.nameSurname
 			{
 				font-weight:bold;
 			}
 
-			#pseudo
+			.pseudo
 			{
 				color:grey;
 			}
 		}
 
-		#footer
+		.footer
 		{
 			clear:left;
 			text-align:left;
@@ -225,7 +220,7 @@ body
 			margin-bottom:5px;
 			margin-left:58px;
 
-			#likeIcon
+			.likeIcon
 			{
 				display:inline-block;
 				width:16px;
@@ -233,12 +228,24 @@ body
 				background-image:url(../images/like.png);
 			}
 
-			#likeIcon:hover
+			.likeIcon:hover
+			{
+				@extend .likeIcon;
+				background-image:url("../images/likeHover.png");
+			}
+
+			.shareIcon
 			{
 				display:inline-block;
-				width:16px;
+				width:19px;
 				height:16px;
-				background-image:url("../images/likeHover.png");
+				background-image:url(../images/share.png);
+			}
+
+			.shareIcon:hover
+			{
+				@extend .shareIcon;
+				background-image:url(../images/shareHover.png);
 			}
 		}
 	}

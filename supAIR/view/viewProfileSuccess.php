@@ -6,7 +6,7 @@
 <section id="profil">
 	<div id="pseudo">
 		<?php
-			if($viewProfileUser->id == $context->getSessionAttribute("id"))
+			if($context->viewProfileUser->id == $context->getSessionAttribute("id"))
 				echo "Votre Profil";
 			else
 				echo "Profil de ".$context->viewProfileUser->identifiant;
@@ -35,7 +35,7 @@
 	<form method="post" id="addMessage">
 		<input type="hidden" id="senderID" name="senderID" value="<?php echo $context->getSessionAttribute("id") ?>" />
 		<input type="hidden" id="recipientID" name="recipientID" value="<?php echo $context->viewProfileUser->id ?>" />
-		<input type="text" name="messageText" placeholder="Envoyez un message &agrave; <?php echo $context->viewProfileUser->identifiant ?>">
+		<textarea rows="1" maxlength="2000" name="messageText" required placeholder="Envoyez un message &agrave; <?php echo $context->viewProfileUser->identifiant; ?>"></textarea>
 		<input type="submit" value="Envoyer">
 	</form>
 
