@@ -8,6 +8,7 @@
 		$post=$chat->c_post;
 		include("post.php");
 	}
+	echo '<script type="text/javascript"> var lastChatID = '.$chat->id.'; </script>';
 ?>
 </div>
 <form id="addChat">

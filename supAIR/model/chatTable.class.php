@@ -20,15 +20,10 @@ class chatTable extends Doctrine_Table{
 
 		$req = Doctrine_Query::create()
 			->from('chat c')
-			->orderBy('c.id', 'DESC');
+			->orderBy('c.id DESC')
+			->limit(1);
 
-		$res = $req->fetchOne();
-
-		if($res == false)
-		{
-			echo 'Erreur sql';
-		}
-		return $res;
+		return  $req->execute();
 	}
 
 	public static function getTenLastChats()
@@ -67,6 +62,8 @@ class chatTable extends Doctrine_Table{
 		$chat=new Chat();
 		$chat->emetteur=$sender;
 		$chat->post=$post;
-		return $chat->trySave();
+		if($chat->trySave())
+			return $chat;
+		else return NULL;
 	}
 }

@@ -11,13 +11,13 @@ $(document).ready(function(e)
 		({
        			url : 'ajaxDispatcher.php?action=addChat',
        			type : 'POST',
-       			data: $this.serialize(),
-		
+       			data: $this.serialize(),	
 			success: function(html)
 			{
 				if(html != "")
 				{
-					$('#chatList').append(html);
+					//lastChatID=html;
+					updateChat();
 				}
 				$('#addChat input[type=text]').val('');
 			}
