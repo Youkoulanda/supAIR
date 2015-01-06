@@ -1,15 +1,34 @@
-/*$("#chatSubmit").click(function()
+$(document).ready(function(e)
 {
-    $.ajax({
-       url : 'ajaxDispatcher.php',
-       type : 'POST',
-       data : 'action=addChat&text=' +$("#chatText").val() + '&id=' +<?php echo $context->getSessionAttribute("id"); ?>
-    });
-});*/
-$( "#chatbox" ).dialog(
-{
-	closeText:"X",
-	autoOpen: false,
-	resizable:false,
-	position :{ my: "right bottom", at: "right bottom", of: window }
+	$("#addChat").on("submit", function(e)
+	{
+	
+		e.preventDefault();
+		var $this = $(this);
+		var messageText = $('#chatText').val();
+
+    		$.ajax
+		({
+       			url : 'ajaxDispatcher.php?action=addChat',
+       			type : 'POST',
+       			data: $this.serialize(),
+		
+			success: function(html)
+			{
+				if(html != "")
+				{
+					$('#chatList').append(html);
+				}
+				$('#addChat input[type=text]').val('');
+			}
+    		});
+	});
+
+	$( "#chatbox" ).dialog(
+	{
+		closeText:"X",
+		autoOpen:true,
+		resizable:false,
+		position :{ my: "right bottom", at: "right bottom", of: window }
+	});
 });

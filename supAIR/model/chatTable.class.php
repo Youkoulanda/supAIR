@@ -60,11 +60,13 @@ class chatTable extends Doctrine_Table{
 		return $req->execute();
 	}
 
-	public static function addChat($text,$id)
+	public static function addChat($post,$sender)
 	{
+		$connection = dbconnection::getInstance();
+
 		$chat=new Chat();
-		$chat->emetteur=$id;
-		$chat->post=postTable::addPost($text,"");
-		$chat->save();
+		$chat->emetteur=$sender;
+		$chat->post=$post;
+		return $chat->trySave();
 	}
 }

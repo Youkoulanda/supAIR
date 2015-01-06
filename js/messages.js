@@ -5,7 +5,6 @@ $(document).ready(function()
 		e.preventDefault();
 
 		var $this = $(this);
-		var messageText = $('#recipientText').val();
 		var latestMessageID = $('#messageList .message:first').attr('id');
 
 		$.ajax

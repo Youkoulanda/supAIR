@@ -9,13 +9,18 @@ class mainController
 {
 	public static function updateChat($request,$context)
 	{
-		$context->lastID=$_REQUEST['id'];
+		$context->lastID=$request['id'];
 		return context::SUCCESS;
 	}
 
 	public static function addChat($request,$context)
 	{
-		chatTable::addChat($_REQUEST['text'],$_REQUEST['id']);
+		$post = postTable::addPost($request['chatText']);
+		$sender = utilisateurTable::getUserById($request['senderID']);
+		$context->result = $sender->identifiant.": ".$request['chatText'];
+		if(chatTable::addChat($post,$sender))
+			return context::SUCCESS;
+		return context::ERROR;
 	}
 
 	public static function index($request,$context)

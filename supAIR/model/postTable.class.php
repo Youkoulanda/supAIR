@@ -6,6 +6,7 @@ class postTable extends Doctrine_Table
 {
 	public static function addPost($text,$image = "")
 	{
+		$connection = dbconnection::getInstance();
 		$text = htmlentities($text);
 
 		if(get_magic_quotes_gpc()===1)
