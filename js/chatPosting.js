@@ -16,7 +16,6 @@ $(document).ready(function(e)
 			{
 				if(html != "")
 				{
-					//lastChatID=html;
 					updateChat();
 				}
 				$('#addChat input[type=text]').val('');

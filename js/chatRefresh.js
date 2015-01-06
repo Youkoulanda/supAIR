@@ -6,7 +6,7 @@ function updateChat()
 		'&lastChatID='+lastChatID,
 		function(html)
 		{
-			if(html.message2 != "")
+			if(html.message2 != null)
 			{
 				$('#chatList').append(html.message1);
 				lastChatID=html.message2;
@@ -15,4 +15,4 @@ function updateChat()
     	);
 }
 
-setInterval(function(){ updateChat(); }, 5000);
+setInterval(function () {updateChat()}, 3000);
