@@ -77,8 +77,28 @@ $(document).ready(function()
 		});
 	});
 
+	//Agrandis la zone de texte à la saisie
 	$('#addMessage textarea').on('focus', function()
 	{
 		$(this).css('height', '5em');
+	});
+
+	//Stylise les liens vers les utilisateurs
+	$('.message .author').hover(function()
+	{
+		$(this).find('.nameSurname').css('text-decoration', 'underline');
+	},
+	function()
+	{
+		$(this).find('.nameSurname').css('text-decoration', 'none');
+	});
+
+	$('.message .shared').hover(function()
+	{
+		$(this).find('a').css('text-decoration', 'underline');
+	},
+	function()
+	{
+		$(this).find('a').css('text-decoration', 'none');
 	});
 });

@@ -39,8 +39,6 @@ body
 		background-color:$bleuMoisi;
 		overflow:auto;
 		overflow-x:hidden;
-//		height:100%;
-		//position:fixed;
 
 		#friendList
 		{
@@ -72,11 +70,7 @@ body
 
 	#centralWrapper
 	{
-		//height:100%;
 		width:100%;
-	//	display:flex;
-	//	flex-direction:column;
-	//	flex:1;
 		text-align:center;
 		overflow:scroll;
 		overflow-x:hidden;
@@ -148,7 +142,7 @@ body
 //Messages Mur
 #messageList
 {
-	width:50%;
+	width:600px;
 	margin:0 auto;
 	border-bottom:1px solid black;
 }
@@ -180,7 +174,14 @@ body
 
 	.shared
 	{
-		margin-top:2px;
+		margin-top:10px;
+		color:grey;
+
+		a
+		{
+			color:inherit;
+			text-decoration:none;
+		}
 	}
 
 	.content
@@ -188,10 +189,10 @@ body
 		text-align:left;
 		padding-top:5px;
 
-		img
+		.userPicture
 		{
-			margin-left:5px;
-			margin-right:5px;
+			margin-left:10px;
+			margin-right:10px;
 			float:left;
 		}
 
@@ -202,14 +203,29 @@ body
 
 		.author
 		{
+			a
+			{
+				text-decoration:none;
+			}
+
 			.nameSurname
 			{
 				font-weight:bold;
+				color:black;
 			}
 
 			.pseudo
 			{
 				color:grey;
+			}
+
+		}
+
+		.text
+		{
+			img
+			{
+				max-width:484px;
 			}
 		}
 
@@ -219,7 +235,7 @@ body
 			text-align:left;
 			margin-top:10px;
 			margin-bottom:5px;
-			margin-left:58px;
+			margin-left:68px;
 
 			.likeIcon
 			{
