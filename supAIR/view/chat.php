@@ -4,7 +4,7 @@
 //Objectif: Créer la vue contenant les 10 derniers chats et le champ pour envoyer un chat
 	foreach(chatTable::getTenLastChats() as $chat)
 	{
-		echo $chat->c_emetteur->identifiant.": ";
+		echo '<a href="supAIR.php?action=viewProfile&id='.$chat->c_emetteur->id.'">'.$chat->c_emetteur->identifiant."</a>: ";
 		$post=$chat->c_post;
 		include("post.php");
 	}
