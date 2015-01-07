@@ -255,6 +255,11 @@ body
 //Fin Messages Mur
 
 //Chat
+.ui-dialog
+{
+	position:absolute;
+	top:500px;
+}
 .ui-dialog-titlebar
 {
 	background-color:$bleuMoisi;
@@ -283,7 +288,7 @@ body
 
 #chatList
 {
-	height:200px;
+	max-height:200px;
 	overflow:scroll;
 	overflow-x:hidden;
 }

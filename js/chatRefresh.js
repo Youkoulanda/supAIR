@@ -14,5 +14,6 @@ function updateChat()
 		}
     	);
 }
-
+var d=$('#chatList');
+d.scrollTop(d.prop("scrollHeight"));
 setInterval(function () {updateChat()}, 3000);
