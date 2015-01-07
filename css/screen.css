@@ -176,20 +176,24 @@ body {
 #profil #pseudo {
   margin-bottom: 2px;
 }
+/* line 136, ../sass/screen.scss */
+#profil #status {
+  margin-bottom: 2px;
+}
 
-/* line 137, ../sass/screen.scss */
+/* line 142, ../sass/screen.scss */
 #changeStatus {
   margin-bottom: 10px;
 }
 
-/* line 143, ../sass/screen.scss */
+/* line 148, ../sass/screen.scss */
 #messageList {
   width: 600px;
   margin: 0 auto;
   border-bottom: 1px solid black;
 }
 
-/* line 150, ../sass/screen.scss */
+/* line 155, ../sass/screen.scss */
 #addMessage {
   width: 100%;
   text-align: center;
@@ -197,13 +201,13 @@ body {
   border-right: 1px solid black;
   border-left: 1px solid black;
 }
-/* line 158, ../sass/screen.scss */
+/* line 163, ../sass/screen.scss */
 #addMessage textarea {
   width: 90%;
   resize: none;
 }
 
-/* line 165, ../sass/screen.scss */
+/* line 170, ../sass/screen.scss */
 .message {
   width: 100%;
   display: flex;
@@ -213,49 +217,49 @@ body {
   border-right: 1px solid black;
   margin: 0 auto;
 }
-/* line 175, ../sass/screen.scss */
+/* line 180, ../sass/screen.scss */
 .message .shared {
   margin-top: 10px;
   color: grey;
 }
-/* line 180, ../sass/screen.scss */
+/* line 185, ../sass/screen.scss */
 .message .shared a {
   color: inherit;
   text-decoration: none;
 }
-/* line 187, ../sass/screen.scss */
+/* line 192, ../sass/screen.scss */
 .message .content {
   text-align: left;
   padding-top: 5px;
 }
-/* line 192, ../sass/screen.scss */
+/* line 197, ../sass/screen.scss */
 .message .content .userPicture {
   margin-left: 10px;
   margin-right: 10px;
   float: left;
 }
-/* line 199, ../sass/screen.scss */
+/* line 204, ../sass/screen.scss */
 .message .content .author, .message .content .text {
   display: inline-block;
 }
-/* line 206, ../sass/screen.scss */
+/* line 211, ../sass/screen.scss */
 .message .content .author a {
   text-decoration: none;
 }
-/* line 211, ../sass/screen.scss */
+/* line 216, ../sass/screen.scss */
 .message .content .author .nameSurname {
   font-weight: bold;
   color: black;
 }
-/* line 217, ../sass/screen.scss */
+/* line 222, ../sass/screen.scss */
 .message .content .author .pseudo {
   color: grey;
 }
-/* line 226, ../sass/screen.scss */
+/* line 231, ../sass/screen.scss */
 .message .content .text img {
   max-width: 484px;
 }
-/* line 232, ../sass/screen.scss */
+/* line 237, ../sass/screen.scss */
 .message .content .footer {
   clear: left;
   text-align: left;
@@ -263,42 +267,42 @@ body {
   margin-bottom: 5px;
   margin-left: 68px;
 }
-/* line 240, ../sass/screen.scss */
+/* line 245, ../sass/screen.scss */
 .message .content .footer .likeIcon, .message .content .footer .likeIcon:hover {
   display: inline-block;
   width: 16px;
   height: 16px;
   background-image: url(../images/like.png);
 }
-/* line 248, ../sass/screen.scss */
+/* line 253, ../sass/screen.scss */
 .message .content .footer .likeIcon:hover {
   background-image: url("../images/likeHover.png");
 }
-/* line 254, ../sass/screen.scss */
+/* line 259, ../sass/screen.scss */
 .message .content .footer .shareIcon, .message .content .footer .shareIcon:hover {
   display: inline-block;
   width: 19px;
   height: 16px;
   background-image: url(../images/share.png);
 }
-/* line 262, ../sass/screen.scss */
+/* line 267, ../sass/screen.scss */
 .message .content .footer .shareIcon:hover {
   background-image: url(../images/shareHover.png);
 }
 
-/* line 274, ../sass/screen.scss */
+/* line 279, ../sass/screen.scss */
 .ui-dialog {
   position: absolute;
   top: 500px;
 }
 
-/* line 279, ../sass/screen.scss */
+/* line 284, ../sass/screen.scss */
 .ui-dialog-titlebar {
   background-color: #4529FF;
   color: white;
   font-weight: bold;
 }
-/* line 284, ../sass/screen.scss */
+/* line 289, ../sass/screen.scss */
 .ui-dialog-titlebar .ui-button {
   margin-left: 185px;
   border: none;
@@ -307,18 +311,18 @@ body {
   border-left: 2px solid white;
 }
 
-/* line 294, ../sass/screen.scss */
+/* line 299, ../sass/screen.scss */
 #chatbox {
   width: 200px;
   border: 1px solid #4529FF;
   background-color: white;
 }
-/* line 299, ../sass/screen.scss */
+/* line 304, ../sass/screen.scss */
 #chatbox form {
   flex-direction: row;
 }
 
-/* line 305, ../sass/screen.scss */
+/* line 310, ../sass/screen.scss */
 #chatList {
   height: 250px;
   overflow: scroll;

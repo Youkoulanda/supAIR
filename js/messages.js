@@ -1,5 +1,6 @@
 $(document).ready(function()
 {
+	//Affichage dynamique du nouveau message écrit avec notification d'ajout
 	$('#addMessage').on('submit', function(e)
 	{
 		e.preventDefault();
@@ -40,6 +41,7 @@ $(document).ready(function()
 		});
 	});
 
+	//gestion du bouton de partage, avec notification
 	$('.shareIcon').on('click', function()
 	{
 		var toShareMessageID = $(this).parents('article').attr('id');
@@ -62,6 +64,7 @@ $(document).ready(function()
 
 	});
 
+	//Rafraîchissement dynamique du nombre de "j'aime"
 	$('.likeIcon').on('click', function()
 	{
 		var toLikeMessageID = $(this).parents('article').attr('id');
@@ -100,5 +103,36 @@ $(document).ready(function()
 	function()
 	{
 		$(this).find('a').css('text-decoration', 'none');
+	});
+
+
+	//Gestion du statut
+	$('#changeStatus').on('submit', function(e)
+	{
+		e.preventDefault();
+
+		var $this = $(this);
+
+		$.ajax
+		({
+			url: 'ajaxDispatcher.php?action=changeStatus',
+			type: 'POST',
+			data: $this.serialize(),
+			success: function(html)
+			{
+				if(html != '')
+				{
+					$('#status').text(html);
+					noty(
+					{
+						layout: 'topRight',
+						text: 'Vous avez changé votre statut',
+						type: 'success',
+						timeout: '5000'
+					});
+				}
+				$('#changeStatus').val('');
+			}
+		});
 	});
 });

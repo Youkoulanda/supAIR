@@ -17,16 +17,19 @@
 		echo '<img height="140px" src="'.$context->srcAvatar.'" alt="photo de profil de '.$context->viewProfileUser->identifiant.'"/><br/>';
 		echo $context->viewProfileUser->prenom.' '.$context->viewProfileUser->nom.'<br/>';
 		echo $context->userBirthdate.'<br/>';
-		echo $context->viewProfileUser->statut.'<br/>';
 	?>
+	<p id="status">
+		<?php echo $context->viewProfileUser->statut; ?>
+	</p>
 </section>
 
 <?php
 	if($context->viewProfileUser->id == $context->getSessionAttribute("id"))
 		echo
 			'<form id="changeStatus">
-				<input type="text" name="statut" placeholder="Changez votre statut si vous voulez">
-				<input type="submit" value="Valider">
+				<input type="text" name="newStatus" placeholder="Changez votre statut si vous voulez" />
+				<input type="hidden" name="viewProfileUserID" value="'.$context->viewProfileUser->id.'" />
+				<input type="submit" value="Valider" />
 			</form>';
 
 	echo '<br/><br/>';

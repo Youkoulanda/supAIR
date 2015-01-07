@@ -38,12 +38,12 @@ class mainController
 	{
 		if($context->getSessionAttribute("login")!=null)
 			return context::SUCCESS;
-		if(isset($_REQUEST['log']) && isset($_REQUEST['psw']))
+		if(isset($request['log']) && isset($request['psw']))
 		{
-			$temp=utilisateurTable::getUserByLoginAndPass($_REQUEST['log'],$_REQUEST['psw']);
+			$temp=utilisateurTable::getUserByLoginAndPass($request['log'],$request['psw']);
 			if($temp!=false)
 			{
-				$context->setSessionAttribute("login",$_REQUEST['log']);
+				$context->setSessionAttribute("login",$request['log']);
 				$context->setSessionAttribute("id",$temp->id);
 				return context::SUCCESS;
 			}
@@ -53,6 +53,26 @@ class mainController
 		return context::SUCCESS;
 	}
 
+	private static function prepareMessages($sourceMessages)
+	{
+			$messages = array();
+
+			foreach($sourceMessages as $message)
+			{
+				$isShared = ($message->m_parent != $message->m_emetteur) ? true : false;
+				$userPicture = ($isShared) ? $message->m_parent->avatar : $message->m_emetteur->avatar;
+				$message->aime = ($message->aime) ? $message->aime : 0;
+
+				$messages[] = array(
+				'isShared' => $isShared,
+				'userPicture' => ($userPicture == "") ? "images/dummy.jpg" : $userPicture,
+				'author' => ($isShared) ? $message->m_parent : $message->m_emetteur,
+				'content' => $message);
+			}
+
+			return $messages;
+	}
+
 	public static function viewProfile($request, $context)
 	{
 		if($context->getSessionAttribute("login")!=null)
@@ -60,18 +80,9 @@ class mainController
 			$context->viewProfileUser = utilisateurTable::getUserById($request['id']);
 			$context->srcAvatar = ($context->viewProfileUser->avatar == "") ? "images/dummy.jpg" : $context->viewProfileUser->avatar;
 			$context->userBirthdate = date("d-m-Y", strtotime($context->viewProfileUser->date_de_naissance));
-			$messages = array();
-			foreach(messageTable::getMessagesByDestinataire($context->viewProfileUser->id) as $message)
-			{
-				$isShared = ($message->m_parent != $message->m_emetteur) ? true : false;
 
-				$messages[] = array(
-				'isShared' => $isShared,
-				'userPicture' => ($isShared) ? $message->m_parent->avatar : $message->m_emetteur->avatar,
-				'author' => ($isShared) ? $message->m_parent : $message->m_emetteur,
-				'content' => $message);
-			}
-			$context->messages = $messages;
+			$context->messages = self::prepareMessages(messageTable::getMessagesByDestinataire($context->viewProfileUser->id));
+
 			return context::SUCCESS;
 		}
 
@@ -94,17 +105,7 @@ class mainController
 			else
 				$newMessages = messageTable::getMessagesByDestinataire($recipient->id);
 
-			foreach($newMessages as $message)
-			{
-				$isShared = ($message->m_parent != $message->m_emetteur) ? true : false;
-
-				$messages[] = array(
-				'isShared' => $isShared,
-				'userPicture' => ($isShared) ? $message->m_parent->avatar : $message->m_emetteur->avatar,
-				'author' => ($isShared) ? $message->m_parent : $message->m_emetteur,
-				'content' => $message);
-			}
-			$context->messages = $messages;
+			$context->messages = self::prepareMessages($newMessages);
 
 			return context::SUCCESS;
 
@@ -112,6 +113,7 @@ class mainController
 
 		return context::ERROR;
 	}
+
 
 	public static function shareMessage($request, $context)
 	{
@@ -134,6 +136,23 @@ class mainController
 			messageTable::likeMessage($toLikeMessageID);
 			$context->likeNumber = messageTable::getLikeNumberFromMessage($toLikeMessageID);
 			return context::SUCCESS;
+		}
+
+		return context::ERROR;
+	}
+
+	public static function changeStatus($request, $context)
+	{
+		if($context->getSessionAttribute("login") != null)
+		{
+			if($request['viewProfileUserID'] == $context->getSessionAttribute('id'))
+			{
+				if(utilisateurTable::changeStatus($context->getSessionAttribute('id'), $request['newStatus']))
+				{
+					$context->newStatus = $request['newStatus'];
+					return context::SUCCESS;
+				}
+			}
 		}
 
 		return context::ERROR;

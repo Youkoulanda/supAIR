@@ -46,4 +46,11 @@ class utilisateurTable extends Doctrine_Table{
 		return $req->execute();
 	}
 
+	public static function changeStatus($userID, $newStatus)
+	{
+		$user = self::getUserById($userID);
+		$user->statut = $newStatus;
+		return $user->trySave();
+	}
+
 }
