@@ -5,7 +5,6 @@ $(document).ready(function(e)
 	
 		e.preventDefault();
 		var $this = $(this);
-		var messageText = $('#chatText').val();
 
     		$.ajax
 		({
