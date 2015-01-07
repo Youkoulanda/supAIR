@@ -1,5 +1,5 @@
 <?php
-//Auteur: Aurélien Rivet
+//Auteur: AurÃ©lien Rivet
 //Objectifs: Afficher le profil d'un utilisateur
 ?>
 
