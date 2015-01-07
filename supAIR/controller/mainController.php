@@ -82,17 +82,32 @@ class mainController
 	{
 		if($context->getSessionAttribute("login") != null)
 		{
-			if($request['latestMessageID'] != '')
-				$context->messages = messageTable::getNewerThan($request['latestMessageID']);
-			else
-				$context->messages = messageTable::getMessagesByDestinataire($context->viewProfileUser->id);
-
 			$sender = utilisateurTable::getUserById($request['senderID']);
 			$recipient = utilisateurTable::getUserById($request['recipientID']);
 			$post = postTable::addPost($request['messageText']);
+			if(!messageTable::addNewMessage($sender, $recipient, $post))
+				return context::ERROR;
 
-			if(messageTable::addNewMessage($sender, $recipient, $post))
-				return context::SUCCESS;
+			$messages = array();
+			if($request['latestMessageID'] != '')
+				$newMessages = messageTable::getNewerThan($request['latestMessageID']);
+			else
+				$newMessages = messageTable::getMessagesByDestinataire($context->viewProfileUser->id);
+
+			foreach($newMessages as $message)
+			{
+				$isShared = ($message->m_parent != $message->m_emetteur) ? true : false;
+
+				$messages[] = array(
+				'isShared' => $isShared,
+				'userPicture' => ($isShared) ? $message->m_parent->avatar : $message->m_emetteur->avatar,
+				'author' => ($isShared) ? $message->m_parent : $message->m_emetteur,
+				'content' => $message);
+			}
+			$context->messages = $messages;
+
+			return context::SUCCESS;
+
 		}
 
 		return context::ERROR;

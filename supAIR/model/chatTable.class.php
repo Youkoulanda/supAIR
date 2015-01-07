@@ -2,7 +2,8 @@
 //Auteur: Aurélien Rivet
 //But : réaliser la classe chatTable
 
-class chatTable extends Doctrine_Table{
+class chatTable extends Doctrine_Table
+{
 
 	public static function getChats()
 	{

@@ -2,7 +2,8 @@
 // Inclusion de la classe message
 //require_once "message.class.php";
 // Classe definissant les methodes associees a la table message (fille de Doctrine_Table)
-class messageTable extends Doctrine_Table{
+class messageTable extends Doctrine_Table
+{
 
 	//Auteur: Daniel Salas
 	//But: réalisation de la fonction getMessageById(id)

@@ -1,7 +1,8 @@
 <?php
 // Classe definissant la table message dans le SGBDR
 
-class message extends Doctrine_Record{
+class message extends Doctrine_Record
+{
 
 	public function setTableDefinition(){
 		// On définit le nom de notre table  :message.

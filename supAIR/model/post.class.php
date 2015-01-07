@@ -1,8 +1,8 @@
 <?php
 // Classe definissant la table utilisateur dans le SGBDR
 
-class post extends Doctrine_Record{
-
+class post extends Doctrine_Record
+{
 	public function setTableDefinition(){
 		// On définit le nom de notre table  :utilisateur.
 		$this->setTableName('post');

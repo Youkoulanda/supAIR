@@ -16,7 +16,7 @@ $(document).ready(function()
 			{
 				if(html != '')
 				{
-					$('#messageList').prepend(html);
+					$('#messageList form').after(html);
 					noty(
 					{
 						layout: 'topRight',
