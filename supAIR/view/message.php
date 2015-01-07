@@ -30,7 +30,8 @@
 			<?php
 				$likeNumber = ($message['content']->aime) ? $message['content']->aime : 0;
 				echo '<span class="likeIcon"></span> <span class="likeNumber">'.$likeNumber.'</span>';
-				echo '   <span class="shareIcon"></span>'
+				if($context->getSessionAttribute("id") != $context->viewProfileUser->id)
+					echo '   <span class="shareIcon"></span>'
 			?>
 		</p>
 	</div>

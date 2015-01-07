@@ -90,9 +90,9 @@ class mainController
 
 			$messages = array();
 			if($request['latestMessageID'] != '')
-				$newMessages = messageTable::getNewerThan($request['latestMessageID']);
+				$newMessages = messageTable::getNewerThan($recipient->id, $request['latestMessageID']);
 			else
-				$newMessages = messageTable::getMessagesByDestinataire($context->viewProfileUser->id);
+				$newMessages = messageTable::getMessagesByDestinataire($recipient->id);
 
 			foreach($newMessages as $message)
 			{

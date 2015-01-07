@@ -5,7 +5,7 @@ $(document).ready(function()
 		e.preventDefault();
 
 		var $this = $(this);
-		var latestMessageID = $('#messageList .message:first').attr('id');
+		var latestMessageID = $('#messageList .message:first').attr('id') || '';
 
 		$.ajax
 		({

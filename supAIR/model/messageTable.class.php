@@ -33,13 +33,14 @@ class messageTable extends Doctrine_Table
 
 	//Auteur:Aurélien Rivet
 	//But : récupérer les message du mur ajoutés après celui qui a l'ID lastID
-	public static function getNewerThan($lastID)
+	public static function getNewerThan($userID, $lastID)
 	{
 		$connection = dbconnection::getInstance();
 
 		$req = Doctrine_Query::create()
 			->from('message z')
 			->where('z.id > ?', $lastID)
+			->where('z.destinataire = ?', $userID)
 			->orderBy('z.id DESC');
 
 		return $req->execute();
