@@ -93,10 +93,22 @@ class mainController
 	{
 		if($context->getSessionAttribute("login") != null)
 		{
+			if ($_FILES['picture']['error'] > 0)
+				return context::ERROR;
+
 			$sender = utilisateurTable::getUserById($request['senderID']);
 			$recipient = utilisateurTable::getUserById($request['recipientID']);
 			$post = postTable::addPost($request['messageText']);
+
 			if(!messageTable::addNewMessage($sender, $recipient, $post))
+				return context::ERROR;
+
+			$extension_upload = strtolower(substr(strrchr($_FILES['picture']['name'], '.'), 1));
+			$nameToSave = "https://pedago01a.univ-avignon.fr/~uapv1201349/squelette/images/{$post->id}.{$extension_upload}";
+			postTable::addImage($post->id, $nameToSave);
+
+			$result = move_uploaded_file($_FILES['picture']['tmp_name'], $nameToSave);
+			if (!$result)
 				return context::ERROR;
 
 			$messages = array();
@@ -109,7 +121,6 @@ class mainController
 			$context->viewProfileUser = $recipient;
 
 			return context::SUCCESS;
-
 		}
 
 		return context::ERROR;

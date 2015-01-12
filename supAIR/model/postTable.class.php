@@ -24,4 +24,15 @@ class postTable extends Doctrine_Table
 		else
 			return -1;
 	}
+
+	public static function addImage($id, $location)
+	{
+		$connection = dbconnection::getInstance();
+		$req = Doctrine_Query::create()
+			->update('post')
+			->set('image', '?', $location)
+			->where('id = ?', $id);
+
+		$req->execute();
+	}
 }
