@@ -10,10 +10,7 @@
 	?>
 	<div id="pseudo">
 		<?php
-			if($context->viewProfileUser->id == $context->getSessionAttribute("id"))
-				echo "Votre Profil";
-			else
-				echo "Profil de ".$context->viewProfileUser->identifiant;
+			echo $context->viewProfileUser->identifiant;
 		?>
 	</div>
 	<?php
