@@ -20,9 +20,9 @@
 				</span>
 			</a>
 		</p>
-		<br/><br/>
 		<p class="text">
 			<?php
+				$isChat = false;
 				$post=$message['content']->m_post;
 				include("post.php");
 			?>
@@ -32,6 +32,9 @@
 				echo '<span class="likeIcon"></span> <span class="likeNumber">'.$message['content']->aime.'</span>';
 				if($context->getSessionAttribute("id") != $context->viewProfileUser->id)
 					echo '   <span class="shareIcon"></span>';
+				if($message['isShared'])
+					echo '   <span class="shareIconOn"></span>';
+
 			?>
 		</p>
 	</div>

@@ -31,8 +31,6 @@
 				<input type="hidden" name="viewProfileUserID" value="'.$context->viewProfileUser->id.'" />
 				<input type="submit" value="Valider" />
 			</form>';
-
-	echo '<br/><br/>';
 ?>
 <section id="messageList">
 	<form method="post" id="addMessage">

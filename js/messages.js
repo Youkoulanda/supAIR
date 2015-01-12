@@ -36,7 +36,7 @@ $(document).ready(function()
 						timeout: '5000'
 					});
 				}
-				$('#addMessage input[type=text]').val('');
+				$('#addMessage').trigger('reset');
 			}
 		});
 	});
@@ -106,7 +106,7 @@ $(document).ready(function()
 	});
 
 
-	//Gestion du statut
+	//Changement du statut
 	$('#changeStatus').on('submit', function(e)
 	{
 		e.preventDefault();
@@ -131,7 +131,7 @@ $(document).ready(function()
 						timeout: '5000'
 					});
 				}
-				$('#changeStatus').val('');
+				$('#changeStatus').trigger('reset');
 			}
 		});
 	});

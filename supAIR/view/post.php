@@ -2,5 +2,5 @@
 	echo  html_entity_decode($post->texte)."<br/>";
 
 	if($post->image != "")
-		echo "<img src=\"".$post->image."\"/><br/>";
+			echo "<img class = imgChat src=\"".$post->image."\"/><br/>";
 ?>

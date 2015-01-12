@@ -65,7 +65,7 @@ class mainController
 
 				$messages[] = array(
 				'isShared' => $isShared,
-				'userPicture' => ($userPicture == "") ? "images/dummy.jpg" : $userPicture,
+				'userPicture' => ($userPicture == "") ? "https://pedago01a.univ-avignon.fr/~uapv1201349/squelette/images/dummy.jpg" : $userPicture,
 				'author' => ($isShared) ? $message->m_parent : $message->m_emetteur,
 				'content' => $message);
 			}
@@ -106,6 +106,7 @@ class mainController
 				$newMessages = messageTable::getMessagesByDestinataire($recipient->id);
 
 			$context->messages = self::prepareMessages($newMessages);
+			$context->viewProfileUser = $recipient;
 
 			return context::SUCCESS;
 

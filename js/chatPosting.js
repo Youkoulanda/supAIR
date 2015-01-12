@@ -2,15 +2,14 @@ $(document).ready(function(e)
 {
 	$("#addChat").on("submit", function(e)
 	{
-	
 		e.preventDefault();
 		var $this = $(this);
 
-    		$.ajax
+		$.ajax
 		({
-       			url : 'ajaxDispatcher.php?action=addChat',
-       			type : 'POST',
-       			data: $this.serialize(),	
+			url : 'ajaxDispatcher.php?action=addChat',
+			type : 'POST',
+			data: $this.serialize(),
 			success: function(html)
 			{
 				if(html != "")
@@ -19,7 +18,7 @@ $(document).ready(function(e)
 				}
 				$('#addChat').trigger('reset');
 			}
-    		});
+		});
 	});
 
 	$( "#chatbox" ).dialog(
