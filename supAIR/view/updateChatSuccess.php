@@ -5,7 +5,7 @@
 	$message1="";
 	foreach(chatTable::getNewerThan($context->lastChatID) as $chat)
 	{
-		$message1.=$chat->c_emetteur->identifiant.": ";
+		$message1.='<a href="supAIR.php?action=viewProfile&id='.$chat->c_emetteur->id.'">'.$chat->c_emetteur->identifiant."</a>: ";
 		$post=$chat->c_post;
 		ob_start();
 		include("post.php");
