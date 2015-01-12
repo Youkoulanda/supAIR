@@ -86,6 +86,11 @@ $(document).ready(function()
 		$(this).css('height', '5em');
 	});
 
+	$('#addMessage textarea').on('blur', function()
+	{
+		$(this).css('height', '');
+	});
+
 	//Stylise les liens vers les utilisateurs
 	$('.message .author').hover(function()
 	{
