@@ -185,6 +185,10 @@ body
 		width:90%;
 		resize:none;
 	}
+	input[type=file]
+	{
+		display:none;
+	}
 }
 
 .message
