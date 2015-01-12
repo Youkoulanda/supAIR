@@ -17,7 +17,7 @@ $(document).ready(function(e)
 				{
 					updateChat();
 				}
-				$('#addChat input[type=text]').val('');
+				$('#addChat').trigger('reset');
 			}
     		});
 	});
