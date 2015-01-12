@@ -13,10 +13,12 @@
 			echo $context->viewProfileUser->identifiant;
 		?>
 	</div>
-	<?php
-		echo $context->viewProfileUser->prenom.' '.$context->viewProfileUser->nom.'<br/>';
-		echo $context->userBirthdate.'<br/>';
-	?>
+	<div id="personalData">
+		<?php
+			echo $context->viewProfileUser->prenom.' '.$context->viewProfileUser->nom.'<br/>';
+			echo $context->userBirthdate.'<br/>';
+		?>
+	</div>
 	<p id="status">
 		<?php echo $context->viewProfileUser->statut; ?>
 	</p>
@@ -36,6 +38,7 @@
 		<input type="hidden" id="senderID" name="senderID" value="<?php echo $context->getSessionAttribute("id") ?>" />
 		<input type="hidden" id="recipientID" name="recipientID" value="<?php echo $context->viewProfileUser->id ?>" />
 		<textarea rows="1" maxlength="2000" name="messageText" required placeholder="Envoyez un message &agrave; <?php echo $context->viewProfileUser->identifiant; ?>"></textarea>
+		<input type="file" accept="image/*" name="picture" />
 		<input type="submit" value="Envoyer">
 	</form>
 
