@@ -34,7 +34,7 @@
 			</form>';
 ?>
 <section id="messageList">
-	<form method="post" id="addMessage">
+	<form method="post" id="addMessage" enctype="multipart/form-data">
 		<input type="hidden" id="senderID" name="senderID" value="<?php echo $context->getSessionAttribute("id") ?>" />
 		<input type="hidden" id="recipientID" name="recipientID" value="<?php echo $context->viewProfileUser->id ?>" />
 		<textarea rows="1" maxlength="2000" name="messageText" required placeholder="Envoyez un message &agrave; <?php echo $context->viewProfileUser->identifiant; ?>"></textarea>
