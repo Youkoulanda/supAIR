@@ -16,13 +16,12 @@
 					<?php echo $message['author']->prenom." ".$message['author']->nom; ?>
 				</span>
 				<span class="pseudo">
-					<?php $message['author']->identifiant; ?>
+					<?php echo $message['author']->identifiant; ?>
 				</span>
 			</a>
 		</p>
 		<p class="text">
 			<?php
-				$isChat = false;
 				$post=$message['content']->m_post;
 				include("post.php");
 			?>

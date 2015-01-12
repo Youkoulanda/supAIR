@@ -2,7 +2,7 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* line 5, ../../../../../../../home/etudiants/inf/uapv1201349/opt/lib/ruby/gems/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 5, ../../../../../home/etudiants/inf/uapv1201349/opt/lib/ruby/gems/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -24,45 +24,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../../../home/etudiants/inf/uapv1201349/opt/lib/ruby/gems/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../home/etudiants/inf/uapv1201349/opt/lib/ruby/gems/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../../../home/etudiants/inf/uapv1201349/opt/lib/ruby/gems/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../home/etudiants/inf/uapv1201349/opt/lib/ruby/gems/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../../../home/etudiants/inf/uapv1201349/opt/lib/ruby/gems/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../home/etudiants/inf/uapv1201349/opt/lib/ruby/gems/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../../../home/etudiants/inf/uapv1201349/opt/lib/ruby/gems/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../home/etudiants/inf/uapv1201349/opt/lib/ruby/gems/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../../../home/etudiants/inf/uapv1201349/opt/lib/ruby/gems/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../home/etudiants/inf/uapv1201349/opt/lib/ruby/gems/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../../../home/etudiants/inf/uapv1201349/opt/lib/ruby/gems/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../../home/etudiants/inf/uapv1201349/opt/lib/ruby/gems/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../../../home/etudiants/inf/uapv1201349/opt/lib/ruby/gems/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../home/etudiants/inf/uapv1201349/opt/lib/ruby/gems/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../../../home/etudiants/inf/uapv1201349/opt/lib/ruby/gems/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../../home/etudiants/inf/uapv1201349/opt/lib/ruby/gems/2.1.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }
@@ -171,29 +171,38 @@ body {
 /* line 127, ../sass/screen.scss */
 #profil {
   margin: 0 auto;
+  width: 600px;
+  overflow: auto;
 }
-/* line 131, ../sass/screen.scss */
+/* line 133, ../sass/screen.scss */
+#profil img {
+  float: left;
+  margin-bottom: 10px;
+  border: solid 5px white;
+  box-shadow: 0px 5px 5px #aaa;
+}
+/* line 140, ../sass/screen.scss */
 #profil #pseudo {
   margin-bottom: 2px;
 }
-/* line 136, ../sass/screen.scss */
+/* line 145, ../sass/screen.scss */
 #profil #status {
   margin-bottom: 2px;
 }
 
-/* line 142, ../sass/screen.scss */
+/* line 151, ../sass/screen.scss */
 #changeStatus {
   margin-bottom: 10px;
 }
 
-/* line 148, ../sass/screen.scss */
+/* line 157, ../sass/screen.scss */
 #messageList {
   width: 600px;
   margin: 0 auto;
   border-bottom: 1px solid black;
 }
 
-/* line 155, ../sass/screen.scss */
+/* line 164, ../sass/screen.scss */
 #addMessage {
   width: 100%;
   text-align: center;
@@ -201,13 +210,13 @@ body {
   border-right: 1px solid black;
   border-left: 1px solid black;
 }
-/* line 163, ../sass/screen.scss */
+/* line 172, ../sass/screen.scss */
 #addMessage textarea {
   width: 90%;
   resize: none;
 }
 
-/* line 170, ../sass/screen.scss */
+/* line 179, ../sass/screen.scss */
 .message {
   width: 100%;
   display: flex;
@@ -217,49 +226,49 @@ body {
   border-right: 1px solid black;
   margin: 0 auto;
 }
-/* line 180, ../sass/screen.scss */
+/* line 189, ../sass/screen.scss */
 .message .shared {
   margin-top: 10px;
   color: grey;
 }
-/* line 185, ../sass/screen.scss */
+/* line 194, ../sass/screen.scss */
 .message .shared a {
   color: inherit;
   text-decoration: none;
 }
-/* line 192, ../sass/screen.scss */
+/* line 201, ../sass/screen.scss */
 .message .content {
   text-align: left;
   padding-top: 5px;
 }
-/* line 197, ../sass/screen.scss */
+/* line 206, ../sass/screen.scss */
 .message .content .userPicture {
   margin-left: 10px;
   margin-right: 10px;
   float: left;
 }
-/* line 204, ../sass/screen.scss */
+/* line 213, ../sass/screen.scss */
 .message .content .author, .message .content .text {
-  display: inline-block;
+  display: block;
 }
-/* line 211, ../sass/screen.scss */
+/* line 220, ../sass/screen.scss */
 .message .content .author a {
   text-decoration: none;
 }
-/* line 216, ../sass/screen.scss */
+/* line 225, ../sass/screen.scss */
 .message .content .author .nameSurname {
   font-weight: bold;
   color: black;
 }
-/* line 222, ../sass/screen.scss */
+/* line 231, ../sass/screen.scss */
 .message .content .author .pseudo {
   color: grey;
 }
-/* line 231, ../sass/screen.scss */
-.message .content .text img {
+/* line 238, ../sass/screen.scss */
+.message .content img {
   max-width: 484px;
 }
-/* line 237, ../sass/screen.scss */
+/* line 243, ../sass/screen.scss */
 .message .content .footer {
   clear: left;
   text-align: left;
@@ -267,42 +276,46 @@ body {
   margin-bottom: 5px;
   margin-left: 68px;
 }
-/* line 245, ../sass/screen.scss */
+/* line 251, ../sass/screen.scss */
 .message .content .footer .likeIcon, .message .content .footer .likeIcon:hover {
   display: inline-block;
   width: 16px;
   height: 16px;
   background-image: url(../images/like.png);
 }
-/* line 253, ../sass/screen.scss */
+/* line 259, ../sass/screen.scss */
 .message .content .footer .likeIcon:hover {
   background-image: url("../images/likeHover.png");
 }
-/* line 259, ../sass/screen.scss */
-.message .content .footer .shareIcon, .message .content .footer .shareIcon:hover {
+/* line 265, ../sass/screen.scss */
+.message .content .footer .shareIcon, .message .content .footer .shareIcon:hover, .message .content .footer .shareIconOn {
   display: inline-block;
   width: 19px;
   height: 16px;
   background-image: url(../images/share.png);
 }
-/* line 267, ../sass/screen.scss */
-.message .content .footer .shareIcon:hover {
+/* line 273, ../sass/screen.scss */
+.message .content .footer .shareIcon:hover, .message .content .footer .shareIconOn:hover {
   background-image: url(../images/shareHover.png);
 }
+/* line 278, ../sass/screen.scss */
+.message .content .footer .shareIconOn {
+  background-image: url(../images/shareOn.png);
+}
 
-/* line 279, ../sass/screen.scss */
+/* line 290, ../sass/screen.scss */
 .ui-dialog {
   position: absolute;
   top: 500px;
 }
 
-/* line 284, ../sass/screen.scss */
+/* line 295, ../sass/screen.scss */
 .ui-dialog-titlebar {
   background-color: #4529FF;
   color: white;
   font-weight: bold;
 }
-/* line 289, ../sass/screen.scss */
+/* line 300, ../sass/screen.scss */
 .ui-dialog-titlebar .ui-button {
   margin-left: 185px;
   border: none;
@@ -311,18 +324,22 @@ body {
   border-left: 2px solid white;
 }
 
-/* line 299, ../sass/screen.scss */
+/* line 310, ../sass/screen.scss */
 #chatbox {
   width: 200px;
   border: 1px solid #4529FF;
   background-color: white;
 }
-/* line 304, ../sass/screen.scss */
+/* line 315, ../sass/screen.scss */
 #chatbox form {
   flex-direction: row;
 }
+/* line 319, ../sass/screen.scss */
+#chatbox img {
+  max-width: 180px;
+}
 
-/* line 310, ../sass/screen.scss */
+/* line 325, ../sass/screen.scss */
 #chatList {
   height: 250px;
   overflow: scroll;

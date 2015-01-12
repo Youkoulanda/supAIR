@@ -1,6 +1,6 @@
 <?php
-	echo  html_entity_decode($post->texte)."<br/>";
+	echo  "<p>".html_entity_decode($post->texte)."</p>";
 
 	if($post->image != "")
-			echo "<img class = imgChat src=\"".$post->image."\"/><br/>";
+			echo "<img src=\"".$post->image."\"/><br/>";
 ?>

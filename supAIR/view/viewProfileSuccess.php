@@ -4,6 +4,10 @@
 ?>
 
 <section id="profil">
+
+	<?php
+		echo '<img height="140px" src="'.$context->srcAvatar.'" alt="photo de profil de '.$context->viewProfileUser->identifiant.'"/><br/>';
+	?>
 	<div id="pseudo">
 		<?php
 			if($context->viewProfileUser->id == $context->getSessionAttribute("id"))
@@ -12,9 +16,7 @@
 				echo "Profil de ".$context->viewProfileUser->identifiant;
 		?>
 	</div>
-
 	<?php
-		echo '<img height="140px" src="'.$context->srcAvatar.'" alt="photo de profil de '.$context->viewProfileUser->identifiant.'"/><br/>';
 		echo $context->viewProfileUser->prenom.' '.$context->viewProfileUser->nom.'<br/>';
 		echo $context->userBirthdate.'<br/>';
 	?>
