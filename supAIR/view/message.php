@@ -29,9 +29,9 @@
 		<p class="footer">
 			<?php
 				echo '<span class="likeIcon"></span> <span class="likeNumber">'.$message['content']->aime.'</span>';
-				if($context->getSessionAttribute("id") != $context->viewProfileUser->id)
+				if($message['content']->m_emetteur != $context->viewProfileUser)
 					echo '   <span class="shareIcon"></span>';
-				if($message['isShared'])
+				else if($message['isShared'] && $context->viewProfileUser->id == $context->getSessionAttribute("id"))
 					echo '   <span class="shareIconOn"></span>';
 
 			?>
