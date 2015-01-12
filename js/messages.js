@@ -135,4 +135,10 @@ $(document).ready(function()
 			}
 		});
 	});
+
+	//Style du bouton d'envoi d'image
+	$('#addMessage input[type=button]').on('click', function()
+	{
+		$('#addMessage input[type=file]').click();
+	});
 });
