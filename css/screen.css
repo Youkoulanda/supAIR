@@ -251,24 +251,29 @@ body {
 .message .content .author, .message .content .text {
   display: block;
 }
-/* line 220, ../sass/screen.scss */
+/* line 218, ../sass/screen.scss */
+.message .content .text {
+  width: 532px;
+  margin-top: 10px;
+}
+/* line 226, ../sass/screen.scss */
 .message .content .author a {
   text-decoration: none;
 }
-/* line 225, ../sass/screen.scss */
+/* line 231, ../sass/screen.scss */
 .message .content .author .nameSurname {
   font-weight: bold;
   color: black;
 }
-/* line 231, ../sass/screen.scss */
+/* line 237, ../sass/screen.scss */
 .message .content .author .pseudo {
   color: grey;
 }
-/* line 238, ../sass/screen.scss */
+/* line 244, ../sass/screen.scss */
 .message .content img {
   max-width: 484px;
 }
-/* line 243, ../sass/screen.scss */
+/* line 249, ../sass/screen.scss */
 .message .content .footer {
   clear: left;
   text-align: left;
@@ -276,46 +281,46 @@ body {
   margin-bottom: 5px;
   margin-left: 68px;
 }
-/* line 251, ../sass/screen.scss */
+/* line 257, ../sass/screen.scss */
 .message .content .footer .likeIcon, .message .content .footer .likeIcon:hover {
   display: inline-block;
   width: 16px;
   height: 16px;
   background-image: url(../images/like.png);
 }
-/* line 259, ../sass/screen.scss */
+/* line 265, ../sass/screen.scss */
 .message .content .footer .likeIcon:hover {
   background-image: url("../images/likeHover.png");
 }
-/* line 265, ../sass/screen.scss */
+/* line 271, ../sass/screen.scss */
 .message .content .footer .shareIcon, .message .content .footer .shareIcon:hover, .message .content .footer .shareIconOn {
   display: inline-block;
   width: 19px;
   height: 16px;
   background-image: url(../images/share.png);
 }
-/* line 273, ../sass/screen.scss */
+/* line 279, ../sass/screen.scss */
 .message .content .footer .shareIcon:hover, .message .content .footer .shareIconOn:hover {
   background-image: url(../images/shareHover.png);
 }
-/* line 278, ../sass/screen.scss */
+/* line 284, ../sass/screen.scss */
 .message .content .footer .shareIconOn {
   background-image: url(../images/shareOn.png);
 }
 
-/* line 290, ../sass/screen.scss */
+/* line 296, ../sass/screen.scss */
 .ui-dialog {
   position: absolute;
   top: 500px;
 }
 
-/* line 295, ../sass/screen.scss */
+/* line 301, ../sass/screen.scss */
 .ui-dialog-titlebar {
   background-color: #4529FF;
   color: white;
   font-weight: bold;
 }
-/* line 300, ../sass/screen.scss */
+/* line 306, ../sass/screen.scss */
 .ui-dialog-titlebar .ui-button {
   margin-left: 185px;
   border: none;
@@ -324,22 +329,22 @@ body {
   border-left: 2px solid white;
 }
 
-/* line 310, ../sass/screen.scss */
+/* line 316, ../sass/screen.scss */
 #chatbox {
   width: 200px;
   border: 1px solid #4529FF;
   background-color: white;
 }
-/* line 315, ../sass/screen.scss */
+/* line 321, ../sass/screen.scss */
 #chatbox form {
   flex-direction: row;
 }
-/* line 319, ../sass/screen.scss */
+/* line 325, ../sass/screen.scss */
 #chatbox img {
   max-width: 180px;
 }
 
-/* line 325, ../sass/screen.scss */
+/* line 331, ../sass/screen.scss */
 #chatList {
   height: 250px;
   overflow: scroll;
