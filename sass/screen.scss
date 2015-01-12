@@ -26,6 +26,7 @@ body
 	font-family:helvetica;
 	background-color:$backgroundColor;
 	height:100%;
+	scrollbar-face-color: $bleuMoisi;
 }
 
 #mainWrapper
@@ -149,6 +150,11 @@ body
 
 	#status
 	{
+		font-size:2em;
+		font-style:italic;
+		font-weight:lighter;
+		color:grey;
+		margin-right:10px;
 		margin-bottom:2px;
 		margin-left:160px;
 	}
@@ -188,6 +194,19 @@ body
 	input[type=file]
 	{
 		display:none;
+	}
+	input[type=button], input[type=submit]
+	{
+		margin-top:8px;
+		background-color:white;
+		border-radius:5px;
+		border: solid 1px #aaa;
+	}
+
+	input[type=button]:hover, input[type=submit]:hover
+	{
+		color:$bleuMoisi;
+		border: solid 1px $bleuMoisi;
 	}
 }
 
