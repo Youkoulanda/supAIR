@@ -100,8 +100,6 @@ $(document).ready(function()
 			$('#addMessage textarea').css('height', '');
 	});
 
-	//$('#addMessage textarea').css('height', '');
-
 	//Stylise les liens vers les utilisateurs
 	$('.message .author').hover(function()
 	{

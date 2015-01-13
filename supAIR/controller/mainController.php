@@ -42,6 +42,7 @@ class mainController
 	{
 		if($context->getSessionAttribute("login")!=null)
 			return context::SUCCESS;
+
 		if(isset($request['log']) && isset($request['psw']))
 		{
 			$temp=utilisateurTable::getUserByLoginAndPass($request['log'],$request['psw']);
@@ -52,11 +53,16 @@ class mainController
 				return context::SUCCESS;
 			}
 			else
-				return context::ERROR;
+				$errorMessage = "Utilisateur introuvable. Vérifiez vos identifiants.";
 		}
-		return context::SUCCESS;
+		else
+			$errorMessage = "Un des deux champs était vide.";
+
+		return context::ERROR;
 	}
 
+	//Auteur:Aurélien Rivet
+	//Prépare l'affichage des messages en plaçant les informations de chacun d'eux dans un tableau à deux dimensions.
 	private static function prepareMessages($sourceMessages)
 	{
 			$messages = array();
@@ -90,6 +96,7 @@ class mainController
 			return context::SUCCESS;
 		}
 
+		$errorMessage = "Vous n'êtes pas connecté, vous n'avez rien à faire sur cette page.";
 		return context::ERROR;
 	}
 
@@ -97,25 +104,29 @@ class mainController
 	{
 		if($context->getSessionAttribute("login") != null)
 		{
-			if ($_FILES['picture']['error'] > 0)
-				return context::ERROR;
+			//if ($_FILES['picture']['error'] > 0)
+				//return context::ERROR;
 
 			$sender = utilisateurTable::getUserById($request['senderID']);
 			$recipient = utilisateurTable::getUserById($request['recipientID']);
 			$post = postTable::addPost($request['messageText']);
 
 			if(!messageTable::addNewMessage($sender, $recipient, $post))
+			{
+				$errorMessage = "Erreur lors de l'ajout du message. Veuillez réessayer.";
 				return context::ERROR;
+			}
 
-			$extension_upload = strtolower(substr(strrchr($_FILES['picture']['name'], '.'), 1));
-			$nameToSave = "https://pedago01a.univ-avignon.fr/~uapv1201349/squelette/images/{$post->id}.{$extension_upload}";
-			postTable::addImage($post->id, $nameToSave);
+			//$extension_upload = strtolower(substr(strrchr($_FILES['picture']['name'], '.'), 1));
+			//$nameToSave = "https://pedago01a.univ-avignon.fr/~uapv1201349/squelette/images/{$post->id}.{$extension_upload}";
+			//postTable::addImage($post->id, $nameToSave);
 
-			$result = move_uploaded_file($_FILES['picture']['tmp_name'], $nameToSave);
-			if (!$result)
-				return context::ERROR;
+			//$result = move_uploaded_file($_FILES['picture']['tmp_name'], $nameToSave);
+			//if (!$result)
+				//return context::ERROR;
 
 			$messages = array();
+
 			if($request['latestMessageID'] != '')
 				$newMessages = messageTable::getNewerThan($recipient->id, $request['latestMessageID']);
 			else
@@ -127,9 +138,9 @@ class mainController
 			return context::SUCCESS;
 		}
 
+		$errorMessage = "Vous n'êtes pas connecté, vous n'avez rien à faire ici.";
 		return context::ERROR;
 	}
-
 
 	public static function shareMessage($request, $context)
 	{
@@ -137,10 +148,12 @@ class mainController
 		{
 			$toShareMessageID = $request['toShareMessageID'];
 			$sender = utilisateurTable::getUserById($context->getSessionAttribute('id'));
+
 			if(messageTable::shareMessage($toShareMessageID, $sender))
 				return context::SUCCESS;
 		}
 
+		$errorMessage = "Vous n'êtes pas connecté, vous n'avez rien à faire ici";
 		return context::ERROR;
 	}
 
@@ -154,6 +167,7 @@ class mainController
 			return context::SUCCESS;
 		}
 
+		$errorMessage = "Vous n'êtes pas connecté, vous n'avez rien à faire ici.";
 		return context::ERROR;
 	}
 
@@ -168,8 +182,14 @@ class mainController
 					$context->newStatus = $request['newStatus'];
 					return context::SUCCESS;
 				}
+				else
+					$errorMessage = "Erreur lors de l'enregistrement du nouveau statut. Veuillez réessayer.";
 			}
+			else
+				$errorMessage = "Vous ne pouvez pas changer le status de quelqu'un d'autre ! (Vous vous croyiez où ?)";
 		}
+		else
+			$errorMessage = "Vous n'êtes pas connecté, vous n'avez rien à faire ici.";
 
 		return context::ERROR;
 	}

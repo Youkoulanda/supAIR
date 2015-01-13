@@ -1,11 +1,15 @@
 <article class="message" id="<?php echo $message['content']->id?>" >
 	<?php
 		if($message['isShared'])
-			echo '<p class="shared">
-					<a href="supAIR.php?action=viewProfile&id='.$message['content']->m_emetteur->id.'" >'
-						.$message['content']->m_emetteur->prenom.' '.$message['content']->m_emetteur->nom.
-					'</a> a partagé
-				</p>';
+		{
+	?>
+			<p class="shared">
+				<a href="supAIR.php?action=viewProfile&id=<?php echo $message['content']->m_emetteur->id;?>" >
+					<?php $message['content']->m_emetteur->prenom.' '.$message['content']->m_emetteur->nom; ?>
+				</a> a partagé
+			</p>
+	<?php
+		}
 	?>
 
 	<div class="content">
@@ -27,14 +31,22 @@
 			?>
 		</p>
 		<p class="footer">
+			<span class="likeIcon">
+			</span>
+			<span class="likeNumber">
+				<?php echo $message['content']->aime; ?>
+			</span>
+		<?php
+			if($message['content']->m_emetteur != $context->viewProfileUser)
+			{
+		?>
+					<span class="shareIcon"></span>';
 			<?php
-				echo '<span class="likeIcon"></span> <span class="likeNumber">'.$message['content']->aime.'</span>';
-				if($message['content']->m_emetteur != $context->viewProfileUser)
-					echo '   <span class="shareIcon"></span>';
+				}
 				else if($message['isShared'] && $context->viewProfileUser->id == $context->getSessionAttribute("id"))
-					echo '   <span class="shareIconOn"></span>';
-
 			?>
+					<span class="shareIconOn"></span>';
+
 		</p>
 	</div>
 </article>

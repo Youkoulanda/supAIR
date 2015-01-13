@@ -1,4 +1,5 @@
-<p>Identifiants erronés.</p>
+<?php include($nameApp."/view/error.php"); ?>
+
 <div id="blocConnexion">
 	<p>Connexion</p>
 		<form id="formulaireLogin" action="supAIR.php?action=login" method="post">
