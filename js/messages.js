@@ -86,10 +86,21 @@ $(document).ready(function()
 		$(this).css('height', '5em');
 	});
 
-	$('#addMessage textarea').on('blur', function()
+	pictureOrSubmitClick = false;
+	$('#addMessage input[type=text],input[type=button]').mousedown(function()
 	{
-		$(this).css('height', '');
+		pictureOrSubmitClick = true;
 	});
+
+	$('#addMessage textarea').blur(function()
+	{
+		if(pictureOrSubmitClick)
+			pictureOrSubmitClick = false;
+		else
+			$('#addMessage textarea').css('height', '');
+	});
+
+	//$('#addMessage textarea').css('height', '');
 
 	//Stylise les liens vers les utilisateurs
 	$('.message .author').hover(function()

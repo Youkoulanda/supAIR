@@ -5,9 +5,7 @@
 
 <section id="profil">
 
-	<?php
-		echo '<img height="140px" src="'.$context->srcAvatar.'" alt="photo de profil de '.$context->viewProfileUser->identifiant.'"/><br/>';
-	?>
+	<img height="140px" src="<?php echo $context->srcAvatar; ?>" alt="photo de profil de <?php echo $context->viewProfileUser->identifiant; ?>" />
 	<div id="pseudo">
 		<?php
 			echo $context->viewProfileUser->identifiant;
@@ -16,7 +14,7 @@
 	<div id="personalData">
 		<?php
 			echo $context->viewProfileUser->prenom.' '.$context->viewProfileUser->nom.'<br/>';
-			echo $context->userBirthdate.'<br/>';
+			echo $context->userBirthdate;
 		?>
 	</div>
 	<p id="status">
@@ -26,12 +24,15 @@
 
 <?php
 	if($context->viewProfileUser->id == $context->getSessionAttribute("id"))
-		echo
-			'<form id="changeStatus">
+	{
+?>
+			<form id="changeStatus">
 				<input type="text" name="newStatus" placeholder="Changez votre statut si vous voulez" />
-				<input type="hidden" name="viewProfileUserID" value="'.$context->viewProfileUser->id.'" />
+				<input type="hidden" name="viewProfileUserID" value="<?php echo $context->viewProfileUser->id;?>" />
 				<input type="submit" value="Valider" />
-			</form>';
+			</form>
+<?php
+	}
 ?>
 <section id="messageList">
 	<form method="post" id="addMessage" enctype="multipart/form-data">
