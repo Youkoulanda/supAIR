@@ -53,10 +53,10 @@ class mainController
 				return context::SUCCESS;
 			}
 			else
-				$errorMessage = "Utilisateur introuvable. Vérifiez vos identifiants.";
+				$context->errorMessage = "Utilisateur introuvable. Vérifiez vos identifiants.";
 		}
 		else
-			$errorMessage = "Un des deux champs était vide.";
+			$context->errorMessage = "Un des deux champs était vide.";
 
 		return context::ERROR;
 	}
@@ -96,7 +96,7 @@ class mainController
 			return context::SUCCESS;
 		}
 
-		$errorMessage = "Vous n'êtes pas connecté, vous n'avez rien à faire sur cette page.";
+		$context->errorMessage = "Vous n'êtes pas connecté, vous n'avez rien à faire sur cette page.";
 		return context::ERROR;
 	}
 
@@ -113,7 +113,7 @@ class mainController
 
 			if(!messageTable::addNewMessage($sender, $recipient, $post))
 			{
-				$errorMessage = "Erreur lors de l'ajout du message. Veuillez réessayer.";
+				$context->errorMessage = "Erreur lors de l'ajout du message. Veuillez réessayer.";
 				return context::ERROR;
 			}
 
@@ -138,7 +138,7 @@ class mainController
 			return context::SUCCESS;
 		}
 
-		$errorMessage = "Vous n'êtes pas connecté, vous n'avez rien à faire ici.";
+		$context->errorMessage = "Vous n'êtes pas connecté, vous n'avez rien à faire ici.";
 		return context::ERROR;
 	}
 
@@ -153,7 +153,7 @@ class mainController
 				return context::SUCCESS;
 		}
 
-		$errorMessage = "Vous n'êtes pas connecté, vous n'avez rien à faire ici";
+		$context->errorMessage = "Vous n'êtes pas connecté, vous n'avez rien à faire ici";
 		return context::ERROR;
 	}
 
@@ -167,7 +167,7 @@ class mainController
 			return context::SUCCESS;
 		}
 
-		$errorMessage = "Vous n'êtes pas connecté, vous n'avez rien à faire ici.";
+		$context->errorMessage = "Vous n'êtes pas connecté, vous n'avez rien à faire ici.";
 		return context::ERROR;
 	}
 
@@ -183,13 +183,13 @@ class mainController
 					return context::SUCCESS;
 				}
 				else
-					$errorMessage = "Erreur lors de l'enregistrement du nouveau statut. Veuillez réessayer.";
+					$context->errorMessage = "Erreur lors de l'enregistrement du nouveau statut. Veuillez réessayer.";
 			}
 			else
-				$errorMessage = "Vous ne pouvez pas changer le status de quelqu'un d'autre ! (Vous vous croyiez où ?)";
+				$context->errorMessage = "Vous ne pouvez pas changer le status de quelqu'un d'autre ! (Vous vous croyiez où ?)";
 		}
 		else
-			$errorMessage = "Vous n'êtes pas connecté, vous n'avez rien à faire ici.";
+			$context->errorMessage = "Vous n'êtes pas connecté, vous n'avez rien à faire ici.";
 
 		return context::ERROR;
 	}

@@ -15,7 +15,9 @@ $(document).ready(function()
 			data: $this.serialize() + '&latestMessageID=' + latestMessageID,
 			success: function(html)
 			{
-				if(html != '')
+				$error = $(html).filter('#error').html();
+
+				if($.type($error) === "undefined")
 				{
 					$('#messageList form').after(html);
 					noty(
@@ -31,7 +33,7 @@ $(document).ready(function()
 					noty(
 					{
 						layout: 'topRight',
-						text: 'Erreur lors de l\'ajout du message',
+						text: $error,
 						type: 'error',
 						timeout: '5000'
 					});
@@ -87,7 +89,7 @@ $(document).ready(function()
 	});
 
 	pictureOrSubmitClick = false;
-	$('#addMessage input[type=text],input[type=button]').mousedown(function()
+	$('#addMessage input[type=submit],input[type=button]').mousedown(function()
 	{
 		pictureOrSubmitClick = true;
 	});
@@ -134,7 +136,9 @@ $(document).ready(function()
 			data: $this.serialize(),
 			success: function(html)
 			{
-				if(html != '')
+				$error = $(html).filter('#error').html();
+
+				if($.type($error) === "undefined")
 				{
 					$('#status').text(html);
 					noty(
@@ -142,6 +146,16 @@ $(document).ready(function()
 						layout: 'topRight',
 						text: 'Vous avez changé votre statut',
 						type: 'success',
+						timeout: '5000'
+					});
+				}
+				else
+				{
+					noty(
+					{
+						layout: 'topRight',
+						text: $error,
+						type: 'error',
 						timeout: '5000'
 					});
 				}
