@@ -31,6 +31,18 @@ class messageTable extends Doctrine_Table
 		return $req->execute();
 	}
 
+	public static function getPopularMessages()
+	{
+		$connection = dbconnection::getInstance();
+
+		$req = Doctrine_Query::create()
+			->from('message m')
+			->orderBy('m.aime DESC')
+			->limit(10);
+
+		return $req->execute();
+	}
+
 	//Auteur:Aurélien Rivet
 	//But : récupérer les message du mur ajoutés après celui qui a l'ID lastID
 	public static function getNewerThan($userID, $lastID)

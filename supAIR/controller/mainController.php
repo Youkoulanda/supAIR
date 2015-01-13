@@ -30,7 +30,11 @@ class mainController
 	public static function index($request,$context)
 	{
 		if($context->getSessionAttribute("login")!=null)
+		{
+			$context->messages = self::prepareMessages(messageTable::getPopularMessages());
+			//$context->messages=messageTable::getPopularMessages();
 			return context::SUCCESS;
+		}
 		return context::ERROR;
 	}
 

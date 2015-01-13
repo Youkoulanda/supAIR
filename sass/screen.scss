@@ -40,6 +40,7 @@ body
 		//background-color:$bleuMoisi;
 		overflow:auto;
 		overflow-x:hidden;
+		border-right: 1px solid #aaa;
 
 		#friendList
 		{
@@ -75,13 +76,14 @@ body
 		text-align:center;
 		overflow:scroll;
 		overflow-x:hidden;
+		background-color:#fcfcfc;
 
 		header
 		{
 			text-align:center;
 			height:50px;
 			background-color:$bleuMoisi;
-			margin-bottom:5px;
+			margin-bottom:10px;
 			h2
 			{
 				font-size:3em;
@@ -131,6 +133,7 @@ body
 	width:600px;
 	overflow:hidden;
 	text-align:right;
+	margin-bottom:10px;
 
 	img
 	{
@@ -178,6 +181,14 @@ body
 	margin:0 auto;
 	border:1px solid #aaa;	
 	border-radius:10px;
+	background-color:white;
+	margin-bottom:10px;
+	h2
+	{
+		font-size:1.5em;
+		margin:10px;
+		color:$bleuMoisi;
+	}
 }
 
 #addMessage
@@ -331,12 +342,14 @@ body
 {
 	position:absolute;
 	top:500px;
+	box-shadow:8px 8px 18px #aaa;
 }
 .ui-dialog-titlebar
 {
 	background-color:$bleuMoisi;
 	color:white;
 	font-weight:bold;
+	padding:5px;
 	.ui-button
 	{
 		margin-left:185px;
@@ -352,6 +365,15 @@ body
 	width:200px;
 	border:1px solid $bleuMoisi;
 	background-color:white;
+	input[type=text]
+	{
+		width:292px;
+	}
+	input[type=submit]
+	{
+		display:none;
+	}
+	
 	form
 	{
 		flex-direction:row;
