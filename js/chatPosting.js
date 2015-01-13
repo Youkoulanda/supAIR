@@ -23,9 +23,21 @@ $(document).ready(function(e)
 
 	$( "#chatbox" ).dialog(
 	{
-		closeText:"X",
 		autoOpen:true,
 		resizable:false,
+		dragStart:function( event, ui ) {$("#chatbox").addClass('noclick');},
 		position :{ my: "right bottom", at: "right bottom", of: window }
+	});
+	$(".ui-button").hide();
+	$(".ui-dialog-titlebar").click(function()
+	{
+		if ($("#chatbox").hasClass('noclick'))
+		{
+        		$("#chatbox").removeClass('noclick');
+    		}
+    		else 
+		{
+			$('#chatbox').toggle();
+		}
 	});
 });
