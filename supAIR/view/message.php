@@ -5,7 +5,7 @@
 	?>
 			<p class="shared">
 				<a href="supAIR.php?action=viewProfile&id=<?php echo $message['content']->m_emetteur->id;?>" >
-					<?php $message['content']->m_emetteur->prenom.' '.$message['content']->m_emetteur->nom; ?>
+					<?php echo $message['content']->m_emetteur->prenom.' '.$message['content']->m_emetteur->nom; ?>
 				</a> a partagé
 			</p>
 	<?php
@@ -40,12 +40,16 @@
 			if($message['content']->m_emetteur != $context->viewProfileUser)
 			{
 		?>
-					<span class="shareIcon"></span>';
+					<span class="shareIcon"></span>
 			<?php
 				}
 				else if($message['isShared'] && $context->viewProfileUser->id == $context->getSessionAttribute("id"))
+				{
 			?>
-					<span class="shareIconOn"></span>';
+					<span class="shareIconOn"></span>
+			<?php
+				}
+			?>
 
 		</p>
 	</div>
