@@ -83,6 +83,8 @@ class mainController
 			return $messages;
 	}
 
+	//Auteur: Aurélien Rivet
+	//But: Permet de voir le mur et le profil d'un utilisateur. Prépare les contenus à afficher par la vue.
 	public static function viewProfile($request, $context)
 	{
 		if($context->getSessionAttribute("login")!=null)
@@ -100,16 +102,40 @@ class mainController
 		return context::ERROR;
 	}
 
+	//Auteur: Aurélien Rivet
+	//But: Prépare l'ajout de l'image au post.
+	/*private static function addPicture($picture, $postID)
+	{
+			if ($picture['error'] > 0)
+				return false;
+
+			$pictureExtension = pathinfo($picture['name'], PATHINFO_EXTENSION);
+			$nameToSave = "https://pedago01a.univ-avignon.fr/~uapv1201349/squelette/images/{$postId}.{$extension_upload}";
+			postTable::addPicture($postId, $nameToSave);
+
+			$result = move_uploaded_file($picture['tmp_name'], $nameToSave);
+			if (!$result)
+				return "Move uploaded file a foiré";
+			return true;
+	}*/
+
 	public static function addNewMessage($request, $context)
 	{
 		if($context->getSessionAttribute("login") != null)
 		{
-			//if ($_FILES['picture']['error'] > 0)
+			if ($_FILES['picture']['error'] > 0)
 				//return context::ERROR;
 
-			$sender = utilisateurTable::getUserById($request['senderID']);
+			$sender = utilisateurTable::getUserById($context->getSessionAttribute("id"));
 			$recipient = utilisateurTable::getUserById($request['recipientID']);
 			$post = postTable::addPost($request['messageText']);
+
+			/*$pictureAdded = self::addPicture($request['picture'], 26);
+			if($pictureAdded != true)
+			{
+				$context->errorMessage = $pictureAdded;
+				return context::ERROR;
+			}*/
 
 			if(!messageTable::addNewMessage($sender, $recipient, $post))
 			{
@@ -117,13 +143,14 @@ class mainController
 				return context::ERROR;
 			}
 
-			//$extension_upload = strtolower(substr(strrchr($_FILES['picture']['name'], '.'), 1));
-			//$nameToSave = "https://pedago01a.univ-avignon.fr/~uapv1201349/squelette/images/{$post->id}.{$extension_upload}";
-			//postTable::addImage($post->id, $nameToSave);
+			$extension_upload = strtolower(substr(strrchr($_FILES['picture']['name'], '.'), 1));
+			$nameToSave = "https://pedago01a.univ-avignon.fr/~uapv1201349/squelette/images/{$post->id}.{$extension_upload}";
+			postTable::addImage($post->id, $nameToSave);
 
-			//$result = move_uploaded_file($_FILES['picture']['tmp_name'], $nameToSave);
-			//if (!$result)
+			$result = move_uploaded_file($_FILES['picture']['tmp_name'], $nameToSave);
+			if (!$result)
 				//return context::ERROR;
+
 
 			$messages = array();
 
@@ -175,8 +202,6 @@ class mainController
 	{
 		if($context->getSessionAttribute("login") != null)
 		{
-			if($request['viewProfileUserID'] == $context->getSessionAttribute('id'))
-			{
 				if(utilisateurTable::changeStatus($context->getSessionAttribute('id'), $request['newStatus']))
 				{
 					$context->newStatus = $request['newStatus'];
@@ -184,9 +209,6 @@ class mainController
 				}
 				else
 					$context->errorMessage = "Erreur lors de l'enregistrement du nouveau statut. Veuillez réessayer.";
-			}
-			else
-				$context->errorMessage = "Vous ne pouvez pas changer le status de quelqu'un d'autre ! (Vous vous croyiez où ?)";
 		}
 		else
 			$context->errorMessage = "Vous n'êtes pas connecté, vous n'avez rien à faire ici.";

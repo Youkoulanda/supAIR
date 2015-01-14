@@ -122,6 +122,24 @@ $(document).ready(function()
 	});
 
 
+	//Animation statut
+
+	if($('#changeStatus').length != 0)
+	{
+		if($.trim($('#status').html()) == "")
+		{
+			$('#changeStatus').show();
+			$('#status').hide();
+		}
+
+		$('#status').on('click', function()
+		{
+			$(this).hide();
+			$('#changeStatus').show();
+			$('#changeStatus input[type=text]').attr("placeholder", $(this).text());
+		});
+	}
+
 	//Changement du statut
 	$('#changeStatus').on('submit', function(e)
 	{
@@ -159,7 +177,8 @@ $(document).ready(function()
 						timeout: '5000'
 					});
 				}
-				$('#changeStatus').trigger('reset');
+				$('#changeStatus').hide();
+				$('#status').show();
 			}
 		});
 	});

@@ -20,23 +20,21 @@
 	<p id="status">
 		<?php echo $context->viewProfileUser->statut; ?>
 	</p>
-</section>
-
-<?php
-	if($context->viewProfileUser->id == $context->getSessionAttribute("id"))
-	{
-?>
+	<?php
+		if($context->viewProfileUser->id == $context->getSessionAttribute("id"))
+		{
+	?>
 			<form id="changeStatus">
 				<input type="text" name="newStatus" placeholder="Changez votre statut si vous voulez" />
-				<input type="hidden" name="viewProfileUserID" value="<?php echo $context->viewProfileUser->id;?>" />
 				<input type="submit" value="Valider" />
 			</form>
-<?php
-	}
-?>
+	<?php
+		}
+	?>
+</section>
+
 <section id="messageList">
 	<form method="post" id="addMessage" enctype="multipart/form-data">
-		<input type="hidden" id="senderID" name="senderID" value="<?php echo $context->getSessionAttribute("id") ?>" />
 		<input type="hidden" id="recipientID" name="recipientID" value="<?php echo $context->viewProfileUser->id ?>" />
 		<textarea rows="1" maxlength="2000" name="messageText" required placeholder="Envoyez un message &agrave; <?php echo $context->viewProfileUser->identifiant; ?>"></textarea>
 		<input type="file" accept="image/*" name="picture" />

@@ -25,7 +25,7 @@ class postTable extends Doctrine_Table
 			return -1;
 	}
 
-	public static function addImage($id, $location)
+	public static function addPicture($id, $location)
 	{
 		$connection = dbconnection::getInstance();
 		$req = Doctrine_Query::create()
