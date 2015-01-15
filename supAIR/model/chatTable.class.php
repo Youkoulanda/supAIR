@@ -1,10 +1,10 @@
 <?php
-//Auteur: Aurélien Rivet
-//But : réaliser la classe chatTable
 
 class chatTable extends Doctrine_Table
 {
 
+	//Auteur: Aurélien Rivet
+	//But : réaliser la classe chatTable
 	public static function getChats()
 	{
 		$connection = dbconnection::getInstance();

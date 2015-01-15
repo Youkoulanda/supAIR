@@ -23,7 +23,7 @@ class utilisateurTable extends Doctrine_Table{
 	}
 
 	//Auteur: Daniel Salas
-	//But: réalisation de la fonction getUserById(id)
+	//But: Permet de récupérer un objet mappé via son ID.
 	public static function getUserById($id)
 	{
 		$connection = dbconnection::getInstance() ;
@@ -37,7 +37,7 @@ class utilisateurTable extends Doctrine_Table{
 	}
 
 	//Auteur: Daniel Salas
-	//But: réalisation de la fonction getUsers()
+	//But: Récupère la liste des utilisateurs.
 	public static function getUsers()
 	{
 		$connection = dbconnection::getInstance() ;
@@ -46,6 +46,8 @@ class utilisateurTable extends Doctrine_Table{
 		return $req->execute();
 	}
 
+	//Auteur: Aurélien Rivet
+	//But: Permet de changer le statut de l'utilisateur ayant l'id $userID.
 	public static function changeStatus($userID, $newStatus)
 	{
 		$user = self::getUserById($userID);

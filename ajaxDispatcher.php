@@ -33,7 +33,7 @@ if($view===false){
 	echo "Une grave erreur s'est produite, il est probable que l'action ".$action." n'existe pas...";
 	die;
 }
-//inclusion du layout qui va lui meme inclure le template view
+//inclusion directe de la vue à afficher
 elseif($view!=context::NONE){
 	include($nameApp."/view/".$action.$view.".php");
 }

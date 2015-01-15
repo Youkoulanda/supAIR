@@ -1,9 +1,9 @@
 <?php
-//Auteur: Daniel Salas
-//But : réaliser la classe postTable
 
 class postTable extends Doctrine_Table
 {
+	//Auteur: Daniel Salas
+	//But : Ajoute un post à la base de données. retourne son index ou bien -1 en cas d'erreur.
 	public static function addPost($text,$image = "")
 	{
 		$connection = dbconnection::getInstance();
@@ -24,15 +24,3 @@ class postTable extends Doctrine_Table
 		else
 			return -1;
 	}
-
-	public static function addPicture($id, $location)
-	{
-		$connection = dbconnection::getInstance();
-		$req = Doctrine_Query::create()
-			->update('post')
-			->set('image', '?', $location)
-			->where('id = ?', $id);
-
-		$req->execute();
-	}
-}

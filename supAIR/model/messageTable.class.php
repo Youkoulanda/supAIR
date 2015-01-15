@@ -59,6 +59,8 @@ class messageTable extends Doctrine_Table
 		return $req->execute();
 	}
 
+	//Auteur: Aurélien Rivet
+	//But: Dans une optique DRY (Don't Repeat Yourself), cette fonction permet de simplifier l'ajout de message et le partage. On peut passer de l'un à l'autre simplement en changeant la valeur du deuxième argument.
 	private static function createMessage($sender, $recipient, $parent, $post, $aime = "")
 	{
 		$connection = dbconnection::getInstance();
@@ -72,11 +74,15 @@ class messageTable extends Doctrine_Table
 		return $message->trySave();
 	}
 
+	//Auteur: Aurélien Rivet
+	//But: Ajouter un nouveau message dans la base.
 	public static function addNewMessage($sender, $recipient, $post)
 	{
 		return self::createMessage($sender, $recipient, $sender, $post);
 	}
 
+	//Auteur::Aurélien Rivet
+	//But: Incrémenter le nombre de messages de 1.
 	public static function likeMessage($id)
 	{
 		$connection = dbconnection::getInstance();
@@ -86,7 +92,9 @@ class messageTable extends Doctrine_Table
 		return $message->trySave();
 	}
 
-	private static function alreadyShareBy($messageToShare, $userID)
+	//Auteur: Aurélien Rivet
+	//But: tester si le message $messageToShare a déjà été partagé par l'utilisateur $userID. Comme sur Twitter, on ne peut pas partager plusieurs fois un message.
+	private static function alreadySharedBy($messageToShare, $userID)
 	{
 		$connection = dbconnection::getInstance();
 
@@ -96,12 +104,14 @@ class messageTable extends Doctrine_Table
 		return false;
 	}
 
+	//Auteur: Aurélien Rivet
+	//But: partager le message d'ID $toShareID, c'est à dire l'ajouter sur le mur de $sender en précisant qu'il est partagé.
 	public static function shareMessage($toShareID, $sender)
 	{
 		$connection = dbconnection::getInstance();
 
 		$messageToShare = self::getMessageById($toShareID);
-		if(!self::alreadyShareBy($messageToShare, $sender))
+		if(!self::alreadySharedBy($messageToShare, $sender))
 			return self::createMessage($sender,
 				$sender,
 				$messageToShare->m_parent,
@@ -111,6 +121,8 @@ class messageTable extends Doctrine_Table
 			return false;
 	}
 
+	//Auteur: Aurélien Rivet
+	//But: Récupérer le nombre de "j'aime" d'un message à partir de son ID.
 	public static function getLikeNumberFromMessage($messageID)
 	{
 		$connection = dbconnection::getInstance();
