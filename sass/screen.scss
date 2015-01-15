@@ -159,6 +159,25 @@ body
 		margin-bottom:2px;
 		margin-left:160px;
 	}
+
+	#changeStatus
+	{
+		margin-top:10px;
+	}
+
+	input[type=submit]
+	{
+		background-color:white;
+		border-radius:5px;
+		border: solid 1px #aaa;
+	}
+
+	input[type=submit]:hover
+	{
+		color:$bleuMoisi;
+		border: solid 1px $bleuMoisi;
+	}
+
 	#personalData
 	{
 		font-size:1.5em;
