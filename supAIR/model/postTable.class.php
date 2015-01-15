@@ -24,3 +24,4 @@ class postTable extends Doctrine_Table
 		else
 			return -1;
 	}
+}
