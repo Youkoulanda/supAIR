@@ -14,10 +14,7 @@ function updateChat()
 				lastChatID=html.message2;
 				newChatsCount+=html.newChatsCount;
 				if(!chatOpen && newChatsCount!=0)
-				{
 					$('#chatbox').dialog( "option", "title", "BossChat "+newChatsCount );
-					alert('BossChat '+newChatsCount);
-				}
 			}
 		}
     	);
