@@ -1,3 +1,6 @@
+//Auteur de tout le fichier: Aurélien RIVET
+//L'utilité de chaque fonction est précisée.
+
 $(document).ready(function()
 {
 	//Affichage dynamique du nouveau message écrit avec notification d'ajout
@@ -43,7 +46,7 @@ $(document).ready(function()
 		});
 	});
 
-	//gestion du bouton de partage, avec notification
+	//Gestion du bouton de partage, avec notification
 	$('.shareIcon').on('click', function()
 	{
 		var toShareMessageID = $(this).parents('article').attr('id');
@@ -88,57 +91,19 @@ $(document).ready(function()
 		$(this).css('height', '5em');
 	});
 
-	pictureOrSubmitClick = false;
-	$('#addMessage input[type=submit],input[type=button]').mousedown(function()
+	submitClick = false;
+	$('#addMessage input[type=submit]').mousedown(function()
 	{
-		pictureOrSubmitClick = true;
+		submitClick = true;
 	});
 
 	$('#addMessage textarea').blur(function()
 	{
-		if(pictureOrSubmitClick)
-			pictureOrSubmitClick = false;
+		if(submitClick)
+			submitClick = false;
 		else
 			$('#addMessage textarea').css('height', '');
 	});
-
-	//Stylise les liens vers les utilisateurs
-	$('.message .author').hover(function()
-	{
-		$(this).find('.nameSurname').css('text-decoration', 'underline');
-	},
-	function()
-	{
-		$(this).find('.nameSurname').css('text-decoration', 'none');
-	});
-
-	$('.message .shared').hover(function()
-	{
-		$(this).find('a').css('text-decoration', 'underline');
-	},
-	function()
-	{
-		$(this).find('a').css('text-decoration', 'none');
-	});
-
-
-	//Animation statut
-
-	if($('#changeStatus').length != 0)
-	{
-		if($.trim($('#status').html()) == "")
-		{
-			$('#changeStatus').show();
-			$('#status').hide();
-		}
-
-		$('#status').on('click', function()
-		{
-			$(this).hide();
-			$('#changeStatus').show();
-			$('#changeStatus input[type=text]').attr("placeholder", $(this).text());
-		});
-	}
 
 	//Changement du statut
 	$('#changeStatus').on('submit', function(e)
@@ -177,15 +142,27 @@ $(document).ready(function()
 						timeout: '5000'
 					});
 				}
+
 				$('#changeStatus').hide();
 				$('#status').show();
 			}
 		});
 	});
 
-	//Style du bouton d'envoi d'image
-	$('#addMessage input[type=button]').on('click', function()
+	//Animation statut: disparition/apparition du formulaire
+	if($('#changeStatus').length != 0)
 	{
-		$('#addMessage input[type=file]').click();
-	});
+		if($.trim($('#status').html()) == "")
+		{
+			$('#changeStatus').show();
+			$('#status').hide();
+		}
+
+		$('#status').on('click', function()
+		{
+			$(this).hide();
+			$('#changeStatus').show();
+			$('#changeStatus input[type=text]').attr("value", $(this).text());
+		});
+	}
 });

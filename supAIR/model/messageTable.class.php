@@ -37,6 +37,7 @@ class messageTable extends Doctrine_Table
 
 		$req = Doctrine_Query::create()
 			->from('message m')
+			->where('EXISTS (SELECT n.aime FROM message n)')
 			->orderBy('m.aime DESC')
 			->limit(10);
 

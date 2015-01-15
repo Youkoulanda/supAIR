@@ -103,54 +103,20 @@ class mainController
 	}
 
 	//Auteur: Aurélien Rivet
-	//But: Prépare l'ajout de l'image au post.
-	/*private static function addPicture($picture, $postID)
-	{
-			if ($picture['error'] > 0)
-				return false;
-
-			$pictureExtension = pathinfo($picture['name'], PATHINFO_EXTENSION);
-			$nameToSave = "https://pedago01a.univ-avignon.fr/~uapv1201349/squelette/images/{$postId}.{$extension_upload}";
-			postTable::addPicture($postId, $nameToSave);
-
-			$result = move_uploaded_file($picture['tmp_name'], $nameToSave);
-			if (!$result)
-				return "Move uploaded file a foiré";
-			return true;
-	}*/
-
+	//But: Ajoute un nouveau message au mur de l'utilisateur actuellement visionné
 	public static function addNewMessage($request, $context)
 	{
 		if($context->getSessionAttribute("login") != null)
 		{
-			if ($_FILES['picture']['error'] > 0)
-				//return context::ERROR;
-
 			$sender = utilisateurTable::getUserById($context->getSessionAttribute("id"));
 			$recipient = utilisateurTable::getUserById($request['recipientID']);
 			$post = postTable::addPost($request['messageText']);
-
-			/*$pictureAdded = self::addPicture($request['picture'], 26);
-			if($pictureAdded != true)
-			{
-				$context->errorMessage = $pictureAdded;
-				return context::ERROR;
-			}*/
 
 			if(!messageTable::addNewMessage($sender, $recipient, $post))
 			{
 				$context->errorMessage = "Erreur lors de l'ajout du message. Veuillez réessayer.";
 				return context::ERROR;
 			}
-
-			$extension_upload = strtolower(substr(strrchr($_FILES['picture']['name'], '.'), 1));
-			$nameToSave = "https://pedago01a.univ-avignon.fr/~uapv1201349/squelette/images/{$post->id}.{$extension_upload}";
-			postTable::addImage($post->id, $nameToSave);
-
-			$result = move_uploaded_file($_FILES['picture']['tmp_name'], $nameToSave);
-			if (!$result)
-				//return context::ERROR;
-
 
 			$messages = array();
 
@@ -169,6 +135,8 @@ class mainController
 		return context::ERROR;
 	}
 
+	//Auteur: Aurélien Rivet
+	//But: Partage un message, c'est à dire le reécrit sur le mur de l'utilisateur qui partage en ajoutant la mention est partagé
 	public static function shareMessage($request, $context)
 	{
 		if($context->getSessionAttribute("login") != null)
@@ -184,6 +152,9 @@ class mainController
 		return context::ERROR;
 	}
 
+	//Auteur: Aurélien Rivet
+	//But: Incrémente le nombre de "j'aime" d'un message de 1. Rien n'est prévu dans l' architecture fournie pour gérer le nombre de fois qu'un utilisateur peut aimer un message,
+	// par conséquent ce nombre est infini.
 	public static function likeMessage($request, $context)
 	{
 		if($context->getSessionAttribute("login") != null)
@@ -198,6 +169,8 @@ class mainController
 		return context::ERROR;
 	}
 
+	//Auteur::Aurélien Rivet
+	//But: Permet de chanegr le statut de l'utilisateur. Accessible seulement sur la propre page de profil de l'utilisateur.
 	public static function changeStatus($request, $context)
 	{
 		if($context->getSessionAttribute("login") != null)

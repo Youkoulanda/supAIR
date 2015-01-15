@@ -14,20 +14,20 @@
 			<?php
 				if($context->getSessionAttribute("login")!=null)
 				{
-					echo'
-						<aside id="verticalBanner">
-							<ul id="friendList">';
-								include($nameApp."/view/menu.php");
-					echo'	</ul>
-						</aside>
-						<div id="chatbox" title="BossChat">';
-							include($nameApp."/view/chat.php");
-						echo '</div>';
-				}
 			?>
+					<aside id="verticalBanner">
+						<ul id="friendList">
+							<?php include($nameApp."/view/menu.php"); ?>
+						</ul>
+					</aside>
+					<div id="chatbox" title="BossChat">
+							<?php include($nameApp."/view/chat.php"); ?>
+					</div>
+		<?php	} ?>
+
 			<div id="centralWrapper">
 				<header>
-					<h2>BossBouc</h2>
+				<h2><a href="<?php echo $nameApp; ?>.php?action=index">BossBouc</a></h2>
 				</header>
 						<?php include($template_view); ?>
 			</div>

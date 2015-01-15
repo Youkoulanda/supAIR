@@ -37,8 +37,6 @@
 	<form method="post" id="addMessage" enctype="multipart/form-data">
 		<input type="hidden" id="recipientID" name="recipientID" value="<?php echo $context->viewProfileUser->id ?>" />
 		<textarea rows="1" maxlength="2000" name="messageText" required placeholder="Envoyez un message &agrave; <?php echo $context->viewProfileUser->identifiant; ?>"></textarea>
-		<input type="file" accept="image/*" name="picture" />
-		<input type="button" value="Ajouter une image" />
 		<input type="submit" value="Envoyer">
 	</form>
 
