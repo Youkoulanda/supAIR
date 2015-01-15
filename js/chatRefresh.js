@@ -1,3 +1,5 @@
+var newChatsCount=0;
+var chatOpen=true;
 function updateChat()
 {
 	$.getJSON
@@ -10,6 +12,12 @@ function updateChat()
 			{
 				$('#chatList').append(html.message1);
 				lastChatID=html.message2;
+				newChatsCount+=html.newChatsCount;
+				if(!chatOpen && newChatsCount!=0)
+				{
+					$('#chatbox').dialog( "option", "title", "BossChat "+newChatsCount );
+					alert('BossChat '+newChatsCount);
+				}
 			}
 		}
     	);

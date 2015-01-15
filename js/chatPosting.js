@@ -37,6 +37,11 @@ $(document).ready(function(e)
     		}
     		else 
 		{
+			if(!chatOpen)
+				$('#chatbox').dialog( "option", "title", "BossChat");
+			if(chatOpen)
+				newChatsCount=0;
+			chatOpen=!chatOpen;
 			$('#chatbox').toggle();
 		}
 	});
