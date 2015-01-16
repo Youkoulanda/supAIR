@@ -19,6 +19,7 @@ class messageTable extends Doctrine_Table
 		return $res;
 	}
 
+	//Renvoi tout les messages destinés à l'utilisateur dont l'ID est passé en argument
 	public static function getMessagesByDestinataire($id)
 	{
 		$connection = dbconnection::getInstance();
@@ -31,6 +32,8 @@ class messageTable extends Doctrine_Table
 		return $req->execute();
 	}
 
+	//Auteur: Daniel Salas
+	//But:Renvoi les messages ayant le plus de j'aime
 	public static function getPopularMessages()
 	{
 		$connection = dbconnection::getInstance();

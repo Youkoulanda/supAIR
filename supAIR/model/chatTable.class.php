@@ -15,6 +15,7 @@ class chatTable extends Doctrine_Table
 		return $req->execute();
 	}
 
+	//But: Renvoie le dernier chat
 	public static function getLastChat()
 	{
 		$connection = dbconnection::getInstance();
@@ -27,6 +28,8 @@ class chatTable extends Doctrine_Table
 		return  $req->execute();
 	}
 
+	//Auteur: Daniel Salas
+	//But:Renvoier les 10 dernier chats
 	public static function getTenLastChats()
 	{
 		$connection = dbconnection::getInstance();
@@ -44,6 +47,8 @@ class chatTable extends Doctrine_Table
 		return $orderedCollection;
 	}
 
+	//Auteur: Daniel Salas
+	//But:Renvoier tout les chats plus récent que celui dont l'ID est passé en paramètre (pour le rafraichissement du chat)
 	public static function getNewerThan($lastID)
 	{
 		$connection = dbconnection::getInstance();
@@ -56,6 +61,8 @@ class chatTable extends Doctrine_Table
 		return $req->execute();
 	}
 
+	//Auteur: Daniel Salas
+	//But:Ajouter un chat dans la base
 	public static function addChat($post,$sender)
 	{
 		$connection = dbconnection::getInstance();

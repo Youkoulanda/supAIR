@@ -1,3 +1,5 @@
+//Auteur: Daniel Salas
+//But: rafraichissement du contenu de la fenêtre de chat
 var newChatsCount=0;
 var chatOpen=true;
 function updateChat()
